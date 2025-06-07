@@ -25,4 +25,8 @@ A collection of LeetCode questions to ace the coding interview!
 | ------- |
 | [0088-merge-sorted-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0088-merge-sorted-array) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
+## String
+|  |
+| ------- |
+| [0482-license-key-formatting](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0482-license-key-formatting) |
 <!---LeetCode Topics End-->
