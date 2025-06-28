@@ -21,6 +21,26 @@
   --color-border: #e5e7eb;
   --color-input: #e5e7eb;
   --color-ring: #111;
+
+  /* LeetCode color scheme */
+  --fill-tertiary: #f0f0f0;
+  --green-20: #c6f6d5;
+  --green-40: #68d391;
+  --green-60: #38a169;
+  --green-80: #2f855a;
+  --text-secondary: #6b7280;
+  --label-2: #4a5568;
+  --label-3: #718096;
+  --dark-label-2: #e2e8f0;
+  --dark-label-3: #a0aec0;
+  --fill-2: #edf2f7;
+  --fill-3: #e2e8f0;
+  --dark-fill-2: #2d3748;
+  --dark-fill-3: #1a202c;
+  --bg-layer-1: #ffffff;
+  --dark-bg-layer-1: #1a202c;
+  --shadow-down-01: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --dark-shadow-down-01: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .dark {
   --color-background: #000000;
@@ -42,6 +62,11 @@
   --color-border: #27272a;
   --color-input: #27272a;
   --color-ring: #fafafa;
+
+  /* LeetCode-specific overrides */
+  --fill-tertiary: #2d3748;
+  --label-2: #e2e8f0;
+  --label-3: #a0aec0;
 }
 
 body {
@@ -254,4 +279,119 @@ nav, .dropdown-menu, .prose nav {
   .problem-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* LeetCode responsive breakpoint classes */
+@media (min-width: 768px) {
+  .lc-md\:flex {
+    display: flex;
+  }
+  
+  .lc-md\:hidden {
+    display: none;
+  }
+  
+  .lc-md\:flex-row {
+    flex-direction: row;
+  }
+  
+  .lc-md\:items-center {
+    align-items: center;
+  }
+  
+  .lc-md\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0;
+  }
+  
+  .lc-md\:pb-4 {
+    padding-bottom: 1rem;
+  }
+  
+  .lc-md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  .lc-md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* Text color classes */
+.text-label-2 {
+  color: var(--label-2);
+}
+
+.text-label-3 {
+  color: var(--label-3);
+}
+
+.dark .text-dark-label-2 {
+  color: var(--dark-label-2);
+}
+
+.dark .text-dark-label-3 {
+  color: var(--dark-label-3);
+}
+
+/* Background and fill classes */
+.bg-layer-1 {
+  background-color: var(--bg-layer-1);
+}
+
+.dark .bg-dark-layer-1 {
+  background-color: var(--dark-bg-layer-1);
+}
+
+.bg-fill-2 {
+  background-color: var(--fill-2);
+}
+
+.bg-fill-3 {
+  background-color: var(--fill-3);
+}
+
+.dark .bg-dark-fill-2 {
+  background-color: var(--dark-fill-2);
+}
+
+.dark .bg-dark-fill-3 {
+  background-color: var(--dark-fill-3);
+}
+
+.hover\:bg-fill-2:hover {
+  background-color: var(--fill-2);
+}
+
+.dark .hover\:bg-dark-fill-2:hover {
+  background-color: var(--dark-fill-2);
+}
+
+.active\:bg-fill-3:active {
+  background-color: var(--fill-3);
+}
+
+.dark .active\:bg-dark-fill-3:active {
+  background-color: var(--dark-fill-3);
+}
+
+/* Shadow classes */
+.shadow-down-01 {
+  box-shadow: var(--shadow-down-01);
+}
+
+.dark .shadow-dark-down-01 {
+  box-shadow: var(--dark-shadow-down-01);
+}
+
+/* Typography classes */
+.font-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+/* Utility classes */
+.mr-4\.5 {
+  margin-right: 1.125rem;
 }
