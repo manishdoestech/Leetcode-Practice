@@ -21,13 +21,13 @@ export function ProblemCard({ problem }: ProblemCardProps) {
   const getDifficultyColor = (difficulty?: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 border-green-200 dark:border-green-700";
       case "Medium":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+        return "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 border-yellow-200 dark:border-yellow-700";
       case "Hard":
-        return "bg-red-100 text-red-800 border-red-200";
+        return "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 border-red-200 dark:border-red-700";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600";
     }
   };
 
@@ -44,7 +44,7 @@ export function ProblemCard({ problem }: ProblemCardProps) {
 
   return (
     <Link href={`/problem/${problem.id}`} className="block focus:outline-none">
-      <div className="relative group">
+      <div className="relative group problem-card">
         <GlowingEffect
           spread={40}
           glow={true}
@@ -53,10 +53,10 @@ export function ProblemCard({ problem }: ProblemCardProps) {
           inactiveZone={0.01}
           className="rounded-3xl"
         />
-        <Card className="h-full border border-gray-200 group-hover:border-transparent group-hover:shadow-lg transition-all duration-200 rounded-3xl focus:outline-none overflow-hidden">
+        <Card className="h-full border border-gray-200 dark:border-gray-700 group-hover:border-transparent group-hover:shadow-lg transition-all duration-200 rounded-3xl focus:outline-none overflow-hidden">
           <CardHeader className="space-y-2">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg font-semibold text-gray-900 line-clamp-2">
+              <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
                 {problem.title}
               </CardTitle>
               <div className="flex items-center gap-2">
@@ -88,10 +88,10 @@ export function ProblemCard({ problem }: ProblemCardProps) {
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
-            <CardDescription className="text-gray-600 text-sm leading-relaxed">
+            <CardDescription className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
               {extractDescription(problem.description)}
             </CardDescription>
-            <div className="flex items-center justify-between text-xs text-gray-500">
+            <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
               <span>
                 {problem.solutions.length} solution
                 {problem.solutions.length !== 1 ? "s" : ""}
@@ -101,7 +101,7 @@ export function ProblemCard({ problem }: ProblemCardProps) {
                   <Badge
                     key={solution.filename}
                     variant="outline"
-                    className="text-xs bg-gray-50 text-gray-700 border-gray-200"
+                    className="text-xs bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 language-badge"
                   >
                     {solution.language}
                   </Badge>

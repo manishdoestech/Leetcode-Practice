@@ -6,7 +6,10 @@ interface OdometerChartProps {
   readonly acceptanceRate?: number;
 }
 
-export default function OdometerChart({ data, acceptanceRate }: Readonly<OdometerChartProps>) {
+export default function OdometerChart({
+  data,
+  acceptanceRate,
+}: Readonly<OdometerChartProps>) {
   const [isHovered, setIsHovered] = useState(false);
   const [animationProgress, setAnimationProgress] = useState(0);
 
@@ -38,7 +41,9 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
 
   // Calculate solved lengths with animation
   const easySolvedLen = getAnimatedLength((easy.solved / easy.total) * easyLen);
-  const mediumSolvedLen = getAnimatedLength((medium.solved / medium.total) * mediumLen);
+  const mediumSolvedLen = getAnimatedLength(
+    (medium.solved / medium.total) * mediumLen
+  );
   const hardSolvedLen = getAnimatedLength((hard.solved / hard.total) * hardLen);
 
   // For acceptance rate, calculate the filled portion
@@ -51,20 +56,28 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
   return (
     <button
       className="relative flex items-center justify-center bg-transparent border-none p-0 outline-none focus:outline-none"
-      style={{ width: 160, height: 160 }}
+      style={{
+        width: 160,
+        height: 160,
+        background: "transparent",
+        backgroundColor: "transparent",
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
-      aria-label={isHovered && acceptanceRate !== undefined 
-        ? `Acceptance rate: ${acceptanceRate}%` 
-        : `Problems solved: ${totalSolved} out of ${totalQuestions}`}
+      aria-label={
+        isHovered && acceptanceRate !== undefined
+          ? `Acceptance rate: ${acceptanceRate}%`
+          : `Problems solved: ${totalSolved} out of ${totalQuestions}`
+      }
     >
       <svg
         viewBox="0 0 100 100"
         width={160}
         height={160}
         className="absolute left-0 top-0"
+        style={{ background: "transparent" }}
       >
         <defs>
           <clipPath id="bar-mask">
@@ -81,12 +94,15 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
             stroke="#22c55e"
             strokeWidth={strokeWidth}
             fill="transparent"
-            strokeDasharray={`${isHovered && acceptanceRate !== undefined ? acceptanceLen : 0},${circleLength}`}
+            strokeDasharray={`${
+              isHovered && acceptanceRate !== undefined ? acceptanceLen : 0
+            },${circleLength}`}
             strokeDashoffset={0}
             strokeLinecap="round"
             style={{
               opacity: isHovered && acceptanceRate !== undefined ? 1 : 0,
-              transition: 'opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out'
+              transition:
+                "opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out",
             }}
           />
         </g>
@@ -109,7 +125,7 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
               strokeLinecap="round"
               style={{
                 opacity: isHovered && acceptanceRate !== undefined ? 0 : 1,
-                transition: 'opacity 0.2s ease-out'
+                transition: "opacity 0.2s ease-out",
               }}
             />
             {/* Easy solved */}
@@ -120,12 +136,15 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
               stroke="#059669"
               strokeWidth={strokeWidth}
               fill="transparent"
-              strokeDasharray={`${easySolvedLen},${circleLength - easySolvedLen}`}
+              strokeDasharray={`${easySolvedLen},${
+                circleLength - easySolvedLen
+              }`}
               strokeDashoffset={66}
               strokeLinecap="round"
               style={{
                 opacity: isHovered && acceptanceRate !== undefined ? 0 : 1,
-                transition: 'opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out'
+                transition:
+                  "opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out",
               }}
             />
           </g>
@@ -148,7 +167,7 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
               strokeLinecap="round"
               style={{
                 opacity: isHovered && acceptanceRate !== undefined ? 0 : 1,
-                transition: 'opacity 0.2s ease-out'
+                transition: "opacity 0.2s ease-out",
               }}
             />
             {/* Medium solved */}
@@ -159,12 +178,15 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
               stroke="#eab308"
               strokeWidth={strokeWidth}
               fill="transparent"
-              strokeDasharray={`${mediumSolvedLen},${circleLength - mediumSolvedLen}`}
+              strokeDasharray={`${mediumSolvedLen},${
+                circleLength - mediumSolvedLen
+              }`}
               strokeDashoffset={66}
               strokeLinecap="round"
               style={{
                 opacity: isHovered && acceptanceRate !== undefined ? 0 : 1,
-                transition: 'opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out'
+                transition:
+                  "opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out",
               }}
             />
           </g>
@@ -187,7 +209,7 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
               strokeLinecap="round"
               style={{
                 opacity: isHovered && acceptanceRate !== undefined ? 0 : 1,
-                transition: 'opacity 0.2s ease-out'
+                transition: "opacity 0.2s ease-out",
               }}
             />
             {/* Hard solved */}
@@ -198,12 +220,15 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
               stroke="#b91c1c"
               strokeWidth={strokeWidth}
               fill="transparent"
-              strokeDasharray={`${hardSolvedLen},${circleLength - hardSolvedLen}`}
+              strokeDasharray={`${hardSolvedLen},${
+                circleLength - hardSolvedLen
+              }`}
               strokeDashoffset={66}
               strokeLinecap="round"
               style={{
                 opacity: isHovered && acceptanceRate !== undefined ? 0 : 1,
-                transition: 'opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out'
+                transition:
+                  "opacity 0.2s ease-out, stroke-dasharray 0.3s ease-out",
               }}
             />
           </g>
@@ -224,7 +249,7 @@ export default function OdometerChart({ data, acceptanceRate }: Readonly<Odomete
           )}
         </div>
         <div className="text-xs leading-normal p-1 mt-1 transition-all duration-300 ease-in-out">
-          {isHovered && acceptanceRate !== undefined ? 'Acceptance' : 'Solved'}
+          {isHovered && acceptanceRate !== undefined ? "Acceptance" : "Solved"}
         </div>
       </div>
     </button>

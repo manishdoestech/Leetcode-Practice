@@ -5,7 +5,9 @@ interface OdometerLegendProps {
   readonly data: LegendData[];
 }
 
-export default function OdometerLegend({ data }: Readonly<OdometerLegendProps>) {
+export default function OdometerLegend({
+  data,
+}: Readonly<OdometerLegendProps>) {
   return (
     <div className="flex flex-col gap-2 justify-center">
       {data.map((d) => (

@@ -23,9 +23,11 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur border-b border-gray-200 dark:border-gray-800 shadow-sm">
+    <nav className="sticky top-0 z-50 w-full bg-white/90 dark:bg-black/90 backdrop-blur border-b border-gray-200 dark:border-gray-700 shadow-sm">
       <div className="container mx-auto flex flex-row items-center justify-between gap-4 py-3 px-4">
-        <h1 className="text-2xl font-bold text-left">LeetCode Tracker</h1>
+        <h1 className="text-2xl font-bold text-left text-gray-900 dark:text-white">
+          LeetCode Tracker
+        </h1>
         <div className="flex flex-row items-center gap-2 w-auto justify-end">
           <Input
             placeholder="Search by title or number..."
@@ -37,7 +39,10 @@ export function Navbar() {
           />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="min-w-[120px]">
+              <Button
+                variant="outline"
+                className="min-w-[120px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
+              >
                 Sort: {sort === "number" ? "Number" : "Title"}
               </Button>
             </DropdownMenuTrigger>
