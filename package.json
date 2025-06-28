@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate:problems": "ts-node scripts/generateProblemsJson.ts",
+    "generate:problems": "node scripts/generateProblemsJson.mjs",
     "prebuild": "npm run generate:problems",
     "dev": "next dev",
     "build": "next build",
