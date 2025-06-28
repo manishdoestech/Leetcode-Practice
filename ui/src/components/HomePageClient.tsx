@@ -3,15 +3,12 @@ import React, { useMemo } from "react";
 import { ProblemCard } from "@/components/ProblemCard";
 import { Separator } from "@/components/ui/separator";
 import type { Problem } from "@/lib/problems";
-import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
 import { useProblemFilter } from "@/context/ProblemFilterContext";
 
 export function HomePageClient({
   problems,
 }: Readonly<{ problems: Problem[] }>) {
   const { search, sort, filter } = useProblemFilter();
-  const { theme, setTheme } = useTheme();
 
   const filteredProblems = useMemo(() => {
     let filtered = problems;

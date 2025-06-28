@@ -60,14 +60,20 @@ export function SplitPane({
       >
         {left}
       </div>
-      {/* Divider for resizing */}
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
-        className="w-2 cursor-col-resize bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
-        style={{ minWidth: 8, maxWidth: 12 }}
-        onMouseDown={onMouseDown}
-        draggable={false}
         role="separator"
+        aria-orientation="vertical"
+        tabIndex={0}
+        className="w-2 cursor-col-resize bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors h-full"
+        style={{ width: 8 }}
+        onMouseDown={onMouseDown}
+        onKeyDown={(e) => {
+          // allow keyboard resizing: left/right arrows
+          if (e.key === "ArrowLeft") onMouseDown && onMouseDown(e as any);
+          if (e.key === "ArrowRight") onMouseDown && onMouseDown(e as any);
+        }}
+        draggable={false}
       />
       <div className="flex-1 min-w-[250px] h-full overflow-auto bg-white dark:bg-black text-black dark:text-white">
         {right}

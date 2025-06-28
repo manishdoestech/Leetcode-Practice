@@ -70,19 +70,20 @@ export function ProblemCard({ problem }: ProblemCardProps) {
                     {problem.difficulty}
                   </Badge>
                 )}
-                <a
-                  href={`https://leetcode.com/problems/${problem.id
-                    .replace(/^\d+-/, "")
-                    .replace(/_/g, "-")
-                    .toLowerCase()}/description/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
                   className="hover:scale-110 transition-transform"
                   title="View on LeetCode"
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const url = `https://leetcode.com/problems/${problem.id
+                      .replace(/^\d+-/, "")
+                      .replace(/_/g, "-")
+                      .toLowerCase()}/description/`;
+                    window.open(url, "_blank", "noopener");
+                  }}
                 >
                   <LeetCodeIcon size={22} />
-                </a>
+                </button>
               </div>
             </div>
           </CardHeader>
