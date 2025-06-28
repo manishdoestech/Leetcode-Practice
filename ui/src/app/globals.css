@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.5rem;
+  --color-background: #fff;
+  --color-foreground: #111;
+  --color-card: #fff;
+  --color-card-foreground: #111;
+  --color-popover: #fff;
+  --color-popover-foreground: #111;
+  --color-primary: #111;
+  --color-primary-foreground: #fff;
+  --color-secondary: #f3f4f6;
+  --color-secondary-foreground: #111;
+  --color-muted: #f9fafb;
+  --color-muted-foreground: #6b7280;
+  --color-accent: #f3f4f6;
+  --color-accent-foreground: #111;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fff;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #111;
+}
+.dark {
+  --color-background: #18181b;
+  --color-foreground: #fafafa;
+  --color-card: #232329;
+  --color-card-foreground: #fafafa;
+  --color-popover: #232329;
+  --color-popover-foreground: #fafafa;
+  --color-primary: #fafafa;
+  --color-primary-foreground: #18181b;
+  --color-secondary: #232329;
+  --color-secondary-foreground: #fafafa;
+  --color-muted: #232329;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #232329;
+  --color-accent-foreground: #fafafa;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #27272a;
+  --color-input: #27272a;
+  --color-ring: #fafafa;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* Card hover effect for shadcn cards */
+.card-hover {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card-hover:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Markdown and HTML content styling */
+.html-content, .markdown-content, .prose {
+  background: var(--color-card) !important;
+  color: var(--color-card-foreground, var(--color-foreground)) !important;
+}
+.dark .html-content, .dark .markdown-content, .dark .prose {
+  background: var(--color-card) !important;
+  color: var(--color-card-foreground, var(--color-foreground)) !important;
+}
+
+.html-content h1, .markdown-content h1, .prose h1,
+.html-content h2, .markdown-content h2, .prose h2,
+.html-content h3, .markdown-content h3, .prose h3,
+.html-content p, .markdown-content p, .prose p,
+.html-content li, .markdown-content li, .prose li,
+.html-content strong, .markdown-content strong, .prose strong,
+.html-content em, .markdown-content em, .prose em {
+  color: var(--color-card-foreground, var(--color-foreground)) !important;
+}
+
+.html-content h1, .markdown-content h1, .prose h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.html-content h2, .markdown-content h2, .prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.html-content h3, .markdown-content h3, .prose h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-foreground);
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.html-content p, .markdown-content p, .prose p,
+.html-content li, .markdown-content li, .prose li {
+  color: var(--color-foreground);
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.html-content strong, .markdown-content strong, .prose strong {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.html-content em, .markdown-content em, .prose em {
+  font-style: italic;
+  color: var(--color-accent-foreground);
+}
+
+.html-content code, .markdown-content code, .prose code {
+  background: var(--color-muted);
+  color: var(--color-primary);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.html-content pre, .markdown-content pre, .prose pre {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  font-size: 0.95em;
+}
+
+.html-content pre code, .markdown-content pre code, .prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.html-content ul, .markdown-content ul, .prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.html-content ol, .markdown-content ol, .prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.html-content li, .markdown-content li, .prose li {
+  color: var(--color-foreground);
+  margin-bottom: 0.25rem;
+}
+
+.html-content .example, .markdown-content .example, .prose .example {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Card backgrounds and borders */
+.card, .prose pre, .html-content pre, .markdown-content pre {
+  background: var(--color-card);
+  color: var(--color-card-foreground, var(--color-foreground));
+  border-color: var(--color-border);
+}
+
+/* Badge, Button, and Input visibility */
+.badge, .prose code, .html-content code, .markdown-content code {
+  background: var(--color-muted);
+  color: var(--color-primary);
+}
+
+input, .input, .prose input {
+  background: var(--color-input);
+  color: var(--color-foreground);
+  border-color: var(--color-border);
+}
+
+button, .button {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border-color: var(--color-border);
+}
+
+button:focus, .button:focus {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* Navbar and dropdown backgrounds */
+nav, .dropdown-menu, .prose nav {
+  background: var(--color-popover);
+  color: var(--color-popover-foreground);
+  border-color: var(--color-border);
+}
+
+/* Ensure text and icons are visible in both themes */
+.text-gray-900, .text-gray-700, .text-gray-600, .text-gray-500, .text-black, .text-white {
+  color: var(--color-foreground) !important;
+}
+.dark .text-gray-900, .dark .text-gray-700, .dark .text-gray-600, .dark .text-gray-500, .dark .text-black, .dark .text-white {
+  color: var(--color-foreground) !important;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
