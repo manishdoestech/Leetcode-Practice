@@ -12,6 +12,7 @@ function getLanguageFromExtension(ext: string): string {
     '.java': 'java',
     '.cpp': 'cpp',
     '.c': 'c',
+    '.sql': 'sql', // Added support for SQL files
   };
   return extensionMap[ext] || 'text';
 }
@@ -31,7 +32,7 @@ function parseProblem(dirName: string, problemPath: string) {
     if (titleMatch) title = titleMatch[1];
     const difficultyRegex = /<h3>(Easy|Medium|Hard)<\/h3>/;
     const difficultyMatch = difficultyRegex.exec(readmeContent);
-    if (difficultyMatch) difficulty = difficultyMatch[1] as any;
+    if (difficultyMatch) difficulty = difficultyMatch[1] as 'Easy' | 'Medium' | 'Hard';
   }
 
   const solutions = files.filter(f => /\.(py|js|ts|java|cpp|c)$/.test(f)).map(file => {
