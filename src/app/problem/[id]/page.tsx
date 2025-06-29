@@ -6,9 +6,9 @@ import { MarkdownContent } from "@/components/MarkdownContent";
 import { CodeBlock } from "@/components/ui/code-block";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { SplitPane } from "@/components/SplitPane";
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 interface ProblemPageProps {
   params: Promise<{
@@ -46,7 +46,7 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
           <Link href="/">
             <Button
               variant="ghost"
-              className="mb-4 text-muted-foreground hover:text-foreground"
+              className="mb-4 text-muted-foreground hover:text-foreground border border-border hover:shadow-lg hover:shadow-purple-500/50 transition-shadow"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Problems
@@ -70,61 +70,59 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
         </div>
 
         {/* Draggable Split View */}
-        <Card className="rounded-xl overflow-hidden bg-card dark:bg-black text-card-foreground dark:text-white border border-border shadow-md">
-          <SplitPane
-            left={
-              <div className="h-full bg-card dark:bg-black text-card-foreground dark:text-white">
-                <div className="p-6 border-b border-border bg-card dark:bg-black">
-                  <h2 className="text-xl font-semibold text-card-foreground dark:text-white">
-                    Problem Description
-                  </h2>
-                </div>
-                <div className="p-6 problem-content bg-card dark:bg-black">
-                  <MarkdownContent content={problem.description} />
-                </div>
+        <SplitPane
+          left={
+            <div className="h-full bg-card text-card-foreground">
+              <div className="p-6 border-b border-border bg-card">
+                <h2 className="text-xl font-semibold text-card-foreground">
+                  Problem Description
+                </h2>
               </div>
-            }
-            right={
-              <div className="h-full bg-card dark:bg-black text-card-foreground dark:text-white">
-                <div className="p-6 border-b border-border bg-card dark:bg-black">
-                  <h2 className="text-xl font-semibold text-card-foreground dark:text-white">
-                    Solution{problem.solutions.length > 1 ? "s" : ""}
-                  </h2>
-                </div>
-                <div className="p-6 space-y-6 solution-content bg-card dark:bg-black">
-                  {problem.solutions.map((solution, index) => (
-                    <div key={solution.filename}>
-                      {index > 0 && <Separator className="my-6" />}
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                          <h3 className="font-semibold text-card-foreground dark:text-white">
-                            {solution.filename}
-                          </h3>
-                          <Badge
-                            variant="outline"
-                            className="bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-300 border-border dark:border-gray-600"
-                          >
-                            {solution.language}
-                          </Badge>
-                        </div>
-                        <div className="bg-card dark:bg-black rounded-lg overflow-hidden">
-                          <CodeBlock
-                            code={solution.code}
-                            language={solution.language}
-                            filename={solution.filename}
-                          />
-                        </div>
+              <div className="p-6 problem-content bg-card">
+                <MarkdownContent content={problem.description} />
+              </div>
+            </div>
+          }
+          right={
+            <div className="h-full bg-card text-card-foreground">
+              <div className="p-6 border-b border-border bg-card">
+                <h2 className="text-xl font-semibold text-card-foreground">
+                  Solution{problem.solutions.length > 1 ? "s" : ""}
+                </h2>
+              </div>
+              <div className="p-6 space-y-6 solution-content bg-card">
+                {problem.solutions.map((solution, index) => (
+                  <div key={solution.filename}>
+                    {index > 0 && <Separator className="my-6" />}
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-card-foreground">
+                          {solution.filename}
+                        </h3>
+                        <Badge
+                          variant="outline"
+                          className="bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-300 border-border dark:border-gray-600"
+                        >
+                          {solution.language}
+                        </Badge>
+                      </div>
+                      <div className="bg-card dark:bg-black rounded-lg overflow-hidden">
+                        <CodeBlock
+                          code={solution.code}
+                          language={solution.language}
+                          filename={solution.filename}
+                        />
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            }
-            minLeft={300}
-            minRight={300}
-            initial={500}
-          />
-        </Card>
+            </div>
+          }
+          minLeft={300}
+          minRight={300}
+          initial={500}
+        />
       </div>
     </div>
   );

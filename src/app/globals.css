@@ -41,7 +41,9 @@
   --dark-bg-layer-1: #1a202c;
   --shadow-down-01: 0 1px 3px rgba(0, 0, 0, 0.1);
   --dark-shadow-down-01: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --separator-bg: #000000;
 }
+
 .dark {
   --color-background: #000000;
   --color-foreground: #fafafa;
@@ -67,10 +69,12 @@
   --fill-tertiary: #2d3748;
   --label-2: #e2e8f0;
   --label-3: #a0aec0;
+  --separator-bg: #ff1493;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   background: var(--color-background);
   color: var(--color-foreground);
   transition: background 0.2s, color 0.2s;
@@ -107,32 +111,54 @@ body {
 .card-hover {
   transition: box-shadow 0.2s, transform 0.2s;
 }
+
 .card-hover:hover {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px) scale(1.01);
 }
 
 /* Markdown and HTML content styling */
-.html-content, .markdown-content, .prose {
-  background: var(--color-card) !important;
-  color: var(--color-card-foreground, var(--color-foreground)) !important;
-}
-.dark .html-content, .dark .markdown-content, .dark .prose {
+.html-content,
+.markdown-content,
+.prose {
   background: var(--color-card) !important;
   color: var(--color-card-foreground, var(--color-foreground)) !important;
 }
 
-.html-content h1, .markdown-content h1, .prose h1,
-.html-content h2, .markdown-content h2, .prose h2,
-.html-content h3, .markdown-content h3, .prose h3,
-.html-content p, .markdown-content p, .prose p,
-.html-content li, .markdown-content li, .prose li,
-.html-content strong, .markdown-content strong, .prose strong,
-.html-content em, .markdown-content em, .prose em {
+.dark .html-content,
+.dark .markdown-content,
+.dark .prose {
+  background: var(--color-card) !important;
   color: var(--color-card-foreground, var(--color-foreground)) !important;
 }
 
-.html-content h1, .markdown-content h1, .prose h1 {
+.html-content h1,
+.markdown-content h1,
+.prose h1,
+.html-content h2,
+.markdown-content h2,
+.prose h2,
+.html-content h3,
+.markdown-content h3,
+.prose h3,
+.html-content p,
+.markdown-content p,
+.prose p,
+.html-content li,
+.markdown-content li,
+.prose li,
+.html-content strong,
+.markdown-content strong,
+.prose strong,
+.html-content em,
+.markdown-content em,
+.prose em {
+  color: var(--color-card-foreground, var(--color-foreground)) !important;
+}
+
+.html-content h1,
+.markdown-content h1,
+.prose h1 {
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -140,7 +166,9 @@ body {
   border-bottom: 1px solid var(--color-border);
 }
 
-.html-content h2, .markdown-content h2, .prose h2 {
+.html-content h2,
+.markdown-content h2,
+.prose h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -149,7 +177,9 @@ body {
   border-bottom: 1px solid var(--color-border);
 }
 
-.html-content h3, .markdown-content h3, .prose h3 {
+.html-content h3,
+.markdown-content h3,
+.prose h3 {
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-foreground);
@@ -157,24 +187,47 @@ body {
   margin-top: 1.5rem;
 }
 
-.html-content p, .markdown-content p, .prose p,
-.html-content li, .markdown-content li, .prose li {
+.html-content p,
+.markdown-content p,
+.prose p,
+.html-content li,
+.markdown-content li,
+.prose li {
   color: var(--color-foreground);
   margin-bottom: 1rem;
   line-height: 1.75;
 }
+/* Override bg-card and text-card-foreground to ensure correct colors in dark mode */
+.bg-card {
+  background-color: var(--color-card) !important;
+}
+.dark .bg-card {
+  background-color: var(--color-card) !important;
+}
+.text-card-foreground {
+  color: var(--color-card-foreground) !important;
+}
+.dark .text-card-foreground {
+  color: var(--color-card-foreground) !important;
+}
 
-.html-content strong, .markdown-content strong, .prose strong {
+.html-content strong,
+.markdown-content strong,
+.prose strong {
   font-weight: 600;
   color: var(--color-primary);
 }
 
-.html-content em, .markdown-content em, .prose em {
+.html-content em,
+.markdown-content em,
+.prose em {
   font-style: italic;
   color: var(--color-accent-foreground);
 }
 
-.html-content code, .markdown-content code, .prose code {
+.html-content code,
+.markdown-content code,
+.prose code {
   background: var(--color-muted);
   color: var(--color-primary);
   padding: 0.125rem 0.5rem;
@@ -183,7 +236,9 @@ body {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.html-content pre, .markdown-content pre, .prose pre {
+.html-content pre,
+.markdown-content pre,
+.prose pre {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   color: var(--color-foreground);
@@ -194,78 +249,111 @@ body {
   font-size: 0.95em;
 }
 
-.html-content pre code, .markdown-content pre code, .prose pre code {
+.html-content pre code,
+.markdown-content pre code,
+.prose pre code {
   background: transparent;
   padding: 0;
   border-radius: 0;
 }
 
-.html-content ul, .markdown-content ul, .prose ul {
+.html-content ul,
+.markdown-content ul,
+.prose ul {
   list-style-type: disc;
   padding-left: 1.5rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
 }
 
-.html-content ol, .markdown-content ol, .prose ol {
+.html-content ol,
+.markdown-content ol,
+.prose ol {
   list-style-type: decimal;
   padding-left: 1.5rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
 }
 
-.html-content li, .markdown-content li, .prose li {
+.html-content li,
+.markdown-content li,
+.prose li {
   color: var(--color-foreground);
   margin-bottom: 0.25rem;
 }
 
-.html-content .example, .markdown-content .example, .prose .example {
+.html-content .example,
+.markdown-content .example,
+.prose .example {
   font-weight: 600;
   color: var(--color-primary);
 }
 
 /* Card backgrounds and borders */
-.card, .prose pre, .html-content pre, .markdown-content pre {
+.card,
+.prose pre,
+.html-content pre,
+.markdown-content pre {
   background: var(--color-card);
   color: var(--color-card-foreground, var(--color-foreground));
   border-color: var(--color-border);
 }
 
 /* Badge, Button, and Input visibility */
-.badge, .prose code, .html-content code, .markdown-content code {
+.badge,
+.prose code,
+.html-content code,
+.markdown-content code {
   background: var(--color-muted);
   color: var(--color-primary);
 }
 
-input, .input, .prose input {
+input,
+.input,
+.prose input {
   background: var(--color-input);
   color: var(--color-foreground);
   border-color: var(--color-border);
 }
 
-button, .button {
+button,
+.button {
   background: var(--color-secondary);
   color: var(--color-secondary-foreground);
   border-color: var(--color-border);
 }
 
-button:focus, .button:focus {
+button:focus,
+.button:focus {
   outline: 2px solid var(--color-ring);
   outline-offset: 2px;
 }
 
 /* Navbar and dropdown backgrounds */
-nav, .dropdown-menu, .prose nav {
+nav,
+.dropdown-menu,
+.prose nav {
   background: var(--color-popover);
   color: var(--color-popover-foreground);
   border-color: var(--color-border);
 }
 
 /* Ensure text and icons are visible in both themes */
-.text-gray-900, .text-gray-700, .text-gray-600, .text-gray-500, .text-black, .text-white {
+.text-gray-900,
+.text-gray-700,
+.text-gray-600,
+.text-gray-500,
+.text-black,
+.text-white {
   color: var(--color-foreground) !important;
 }
-.dark .text-gray-900, .dark .text-gray-700, .dark .text-gray-600, .dark .text-gray-500, .dark .text-black, .dark .text-white {
+
+.dark .text-gray-900,
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-black,
+.dark .text-white {
   color: var(--color-foreground) !important;
 }
 
@@ -283,6 +371,7 @@ nav, .dropdown-menu, .prose nav {
 
 /* Responsive overrides for SplitPane on mobile */
 @media (max-width: 767px) {
+
   .split-pane-left,
   .split-pane-right {
     width: 100% !important;
@@ -291,6 +380,7 @@ nav, .dropdown-menu, .prose nav {
     height: auto !important;
     max-height: none !important;
   }
+
   .split-pane-separator {
     display: none !important;
   }
@@ -301,32 +391,32 @@ nav, .dropdown-menu, .prose nav {
   .lc-md\:flex {
     display: flex;
   }
-  
+
   .lc-md\:hidden {
     display: none;
   }
-  
+
   .lc-md\:flex-row {
     flex-direction: row;
   }
-  
+
   .lc-md\:items-center {
     align-items: center;
   }
-  
-  .lc-md\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
+
+  .lc-md\:space-y-0> :not([hidden])~ :not([hidden]) {
     margin-top: 0;
   }
-  
+
   .lc-md\:pb-4 {
     padding-bottom: 1rem;
   }
-  
+
   .lc-md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
-  
+
   .lc-md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -478,7 +568,7 @@ nav, .dropdown-menu, .prose nav {
 .problem-card [data-slot="card"]:active,
 .problem-card [data-slot="card"]:focus-visible {
   outline: none !important;
-  border-width: 1px !important;
+  border: none !important;
   box-shadow: none !important;
 }
 
@@ -563,17 +653,244 @@ nav, .dropdown-menu, .prose nav {
 }
 
 /* Force transparency for markdown/prose in problem and solution panes */
-.problem-content > .html-content,
-.problem-content > .prose,
-.solution-content > .html-content,
-.solution-content > .prose {
+.problem-content>.html-content,
+.problem-content>.prose,
+.solution-content>.html-content,
+.solution-content>.prose {
   background-color: transparent !important;
   color: var(--color-card-foreground) !important;
 }
-.problem-content > .html-content *,
-.problem-content > .prose *,
-.solution-content > .html-content *,
-.solution-content > .prose * {
+
+.problem-content>.html-content *,
+.problem-content>.prose *,
+.solution-content>.html-content *,
+.solution-content>.prose * {
   background-color: transparent !important;
   color: var(--color-card-foreground) !important;
+}
+
+/* Custom scrollbar for problem description and markdown content */
+.problem-content::-webkit-scrollbar,
+.solution-content::-webkit-scrollbar,
+.html-content::-webkit-scrollbar,
+.markdown-content::-webkit-scrollbar,
+.prose::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.problem-content::-webkit-scrollbar-track,
+.solution-content::-webkit-scrollbar-track,
+.html-content::-webkit-scrollbar-track,
+.markdown-content::-webkit-scrollbar-track,
+.prose::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Light mode scrollbar */
+.problem-content::-webkit-scrollbar-thumb,
+.solution-content::-webkit-scrollbar-thumb,
+.html-content::-webkit-scrollbar-thumb,
+.markdown-content::-webkit-scrollbar-thumb,
+.prose::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.problem-content::-webkit-scrollbar-thumb:hover,
+.solution-content::-webkit-scrollbar-thumb:hover,
+.html-content::-webkit-scrollbar-thumb:hover,
+.markdown-content::-webkit-scrollbar-thumb:hover,
+.prose::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode scrollbar */
+.dark .problem-content::-webkit-scrollbar-track,
+.dark .solution-content::-webkit-scrollbar-track,
+.dark .html-content::-webkit-scrollbar-track,
+.dark .markdown-content::-webkit-scrollbar-track,
+.dark .prose::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.dark .problem-content::-webkit-scrollbar-thumb,
+.dark .solution-content::-webkit-scrollbar-thumb,
+.dark .html-content::-webkit-scrollbar-thumb,
+.dark .markdown-content::-webkit-scrollbar-thumb,
+.dark .prose::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.dark .problem-content::-webkit-scrollbar-thumb:hover,
+.dark .solution-content::-webkit-scrollbar-thumb:hover,
+.dark .html-content::-webkit-scrollbar-thumb:hover,
+.dark .markdown-content::-webkit-scrollbar-thumb:hover,
+.dark .prose::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+/* Custom scrollbar for code blocks */
+.cm-editor .cm-scroller::-webkit-scrollbar,
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.cm-editor .cm-scroller::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track,
+code::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Light mode code block scrollbar */
+.cm-editor .cm-scroller::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb,
+code::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.cm-editor .cm-scroller::-webkit-scrollbar-thumb:hover,
+pre::-webkit-scrollbar-thumb:hover,
+code::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode code block scrollbar */
+.dark .cm-editor .cm-scroller::-webkit-scrollbar-track,
+.dark pre::-webkit-scrollbar-track,
+.dark code::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.dark .cm-editor .cm-scroller::-webkit-scrollbar-thumb,
+.dark pre::-webkit-scrollbar-thumb,
+.dark code::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.dark .cm-editor .cm-scroller::-webkit-scrollbar-thumb:hover,
+.dark pre::-webkit-scrollbar-thumb:hover,
+.dark code::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox scrollbar support */
+.problem-content,
+.solution-content,
+.html-content,
+.markdown-content,
+.prose {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 transparent;
+}
+
+.dark .problem-content,
+.dark .solution-content,
+.dark .html-content,
+.dark .markdown-content,
+.dark .prose {
+  scrollbar-color: #ffffff #000000;
+}
+
+.cm-editor .cm-scroller,
+pre,
+code {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 transparent;
+}
+
+.dark .cm-editor .cm-scroller,
+.dark pre,
+.dark code {
+  scrollbar-color: #ffffff #000000;
+}
+
+/* Custom scrollbar for split panes */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode custom scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 4px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox scrollbar support for custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #ffffff;
+}
+
+.dark .custom-scrollbar {
+  scrollbar-color: #ffffff #000000;
+}
+
+/* Splitter gradient styles */
+.splitter-gradient {
+  background: #000000;
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.dark .splitter-gradient {
+  background: linear-gradient(45deg, #dd7bbb, #d79f1e, #5a922c, #4c7894);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Gradient animation for splitter */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }

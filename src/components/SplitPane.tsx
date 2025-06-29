@@ -1,5 +1,8 @@
 "use client";
-import React, { ReactNode, useRef, useState, useEffect } from "react";
+import type React from "react";
+import { type ReactNode, useRef, useState, useEffect } from "react";
+import Image from "next/image";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 interface SplitPaneProps {
   left: ReactNode;
@@ -45,29 +48,50 @@ export function SplitPane({
   }, [dragging, minLeft, minRight]);
 
   return (
-    <div
-      ref={containerRef}
-      className="split-pane-container flex flex-col md:flex-row w-full h-auto md:h-[70vh] md:min-h-[400px] md:max-h-[80vh] border border-border rounded-xl overflow-hidden bg-white dark:bg-black text-black dark:text-white shadow"
-      style={{ resize: "none" }}
-    >
+    <div className="relative">
+      <GlowingEffect glow={true} disabled={false} className="rounded-xl" />
       <div
-        className="split-pane-left w-full md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white"
-        style={{
-          width: leftWidth,
-          minWidth: minLeft,
-          maxWidth: `calc(100% - ${minRight}px)`,
-        }}
+        ref={containerRef}
+        className="split-pane-container flex flex-col md:flex-row w-full h-auto md:h-[70vh] md:min-h-[400px] md:max-h-[80vh] border border-border rounded-xl overflow-hidden bg-white dark:bg-black text-black dark:text-white shadow"
+        style={{ resize: "none" }}
       >
-        {left}
-      </div>
-      <hr
-        className="split-pane-separator hidden md:block cursor-col-resize bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors h-full m-0"
-        style={{ width: 8 }}
-        onMouseDown={onMouseDown}
-        draggable={false}
-      />
-      <div className="split-pane-right w-full flex-1 md:min-w-[250px] h-auto md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white">
-        {right}
+        <div
+          className="relative split-pane-left w-full md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white custom-scrollbar"
+          style={{
+            width: leftWidth,
+            minWidth: minLeft,
+            maxWidth: `calc(100% - ${minRight}px)`,
+          }}
+        >
+          <GlowingEffect glow={true} disabled={false} />
+          {left}
+        </div>
+        <button
+          type="button"
+          className="split-pane-separator hidden md:flex cursor-col-resize h-full m-0 relative overflow-hidden items-center justify-center splitter-gradient bg-transparent border-none p-0"
+          style={{
+            width: 4,
+          }}
+          onMouseDown={onMouseDown}
+          draggable={false}
+        >
+          <GlowingEffect glow={true} disabled={false} />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-purple-500/10 animate-bounce"></div>
+          <div className="absolute transform -rotate-90 select-none pointer-events-none flex items-center justify-center">
+            <Image
+              src="/hand.svg"
+              alt="Drag"
+              width={16}
+              height={16}
+              className="drop-shadow-lg"
+            />
+          </div>
+        </button>
+        <div className="relative split-pane-right w-full flex-1 md:min-w-[250px] h-auto md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white custom-scrollbar">
+          <GlowingEffect glow={true} disabled={false} />
+          {right}
+        </div>
       </div>
     </div>
   );
