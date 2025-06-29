@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "LeetCode Practice",
     images: [
       {
-        url: "/Arch.png",
+        url: "https://dsa.buildwithmanish.com/Arch.png",
         width: 1200,
         height: 630,
         alt: "LeetCode Practice - Problem solving tracker",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LeetCode Practice",
     description: "A collection of LeetCode problems and their solutions",
-    images: ["/Arch.png"],
+    images: ["https://dsa.buildwithmanish.com/Arch.png"],
   },
   metadataBase: new URL("https://dsa.buildwithmanish.com"),
 };
