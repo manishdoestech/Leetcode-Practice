@@ -24,7 +24,8 @@ export function Navbar() {
             className="p-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-900 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
-            {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
+            {mounted &&
+              (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
           </button>
         </div>
       </div>
