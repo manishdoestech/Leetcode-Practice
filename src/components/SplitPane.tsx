@@ -56,7 +56,7 @@ export function SplitPane({
         style={{ resize: "none" }}
       >
         <div
-          className="relative split-pane-left w-full md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white custom-scrollbar"
+          className="relative split-pane-left w-full md:h-full overflow-y-auto overflow-x-hidden bg-white dark:bg-black text-black dark:text-white custom-scrollbar"
           style={{
             width: leftWidth,
             minWidth: minLeft,
@@ -88,7 +88,7 @@ export function SplitPane({
             />
           </div>
         </button>
-        <div className="relative split-pane-right w-full flex-1 md:min-w-[250px] h-auto md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white custom-scrollbar">
+        <div className="relative split-pane-right w-full flex-1 md:min-w-[250px] h-auto md:h-full overflow-y-auto overflow-x-hidden bg-white dark:bg-black text-black dark:text-white custom-scrollbar">
           <GlowingEffect glow={true} disabled={false} />
           {right}
         </div>

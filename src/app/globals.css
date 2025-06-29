@@ -244,9 +244,12 @@ body {
   color: var(--color-foreground);
   padding: 1rem;
   border-radius: 0.5rem;
-  overflow-x: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin-bottom: 1rem;
   font-size: 0.95em;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .html-content pre code,

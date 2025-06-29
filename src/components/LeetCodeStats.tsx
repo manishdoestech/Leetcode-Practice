@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import OdometerChart from "./leetcode-stats/OdometerChart";
@@ -12,17 +12,11 @@ import { transformCalendarData } from "./leetcode-stats/utils";
 
 export default function LeetCodeStats() {
   const { stats, loading, error } = useLeetCodeStats();
-  const [initialLoaded, setInitialLoaded] = useState(false);
 
   const loader = useMemo(() => <ShimmerLoader />, []);
 
-  // Once stats loaded initially, mark loaded. Only show shimmer on first load.
-  useEffect(() => {
-    if (!loading) {
-      setInitialLoaded(true);
-    }
-  }, [loading]);
-  if (loading && !initialLoaded) return loader;
+  // Show shimmer only when loading
+  if (loading) return loader;
   if (error || !stats || stats.status !== "success") {
     return <div className="my-8">Failed to load LeetCode stats.</div>;
   }
@@ -33,10 +27,10 @@ export default function LeetCodeStats() {
 
   return (
     <div className="my-8 flex justify-center">
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-none sm:max-w-full md:max-w-6xl">
         <div className="flex flex-col md:flex-row gap-4 w-full">
           {/* Left Panel - Odometer (40%) */}
-          <div className="md:w-1/5 w-full">
+          <div className="w-full sm:w-full md:w-1/5">
             <div className="relative group">
               <GlowingEffect
                 spread={40}
@@ -62,8 +56,8 @@ export default function LeetCodeStats() {
             </div>
           </div>
 
-          {/* Right Panel - Heatmap (60%) */}
-          <div className="md:w-4/5 w-full flex items-center justify-center">
+          {/* Right Panel - Heatmap (80%) */}
+          <div className="w-full sm:w-full md:w-4/5">
             <ContributionHeatmap
               data={calendarData}
               totalSubmissions={

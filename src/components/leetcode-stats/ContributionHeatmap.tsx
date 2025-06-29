@@ -264,7 +264,7 @@ export default function ContributionHeatmap({
   };
 
   return (
-    <div className="relative group">
+    <div className="relative group w-full">
       <GlowingEffect
         spread={40}
         glow={true}
@@ -273,7 +273,7 @@ export default function ContributionHeatmap({
         inactiveZone={0.01}
         className="rounded-3xl"
       />
-      <Card className="shadow-down-01 dark:shadow-dark-down-01 rounded-3xl flex h-auto flex-col space-y-4 p-4 pb-0 heatmap-container relative text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 group-hover:border-transparent group-hover:shadow-lg transition-all duration-200 overflow-hidden">
+      <Card className="shadow-down-01 dark:shadow-dark-down-01 rounded-3xl flex h-auto flex-col space-y-4 p-4 pb-0 heatmap-container relative text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 group-hover:border-transparent group-hover:shadow-lg transition-all duration-200 overflow-hidden w-full">
         {/* Header Section */}
         <div className="lc-md:flex-row lc-md:items-center lc-md:space-y-0 flex flex-col flex-wrap space-y-2">
           <div className="flex flex-1 items-center">
@@ -368,12 +368,14 @@ export default function ContributionHeatmap({
         </div>
 
         {/* Heatmap */}
-        <div className="flex h-auto w-full flex-1 items-center justify-center overflow-x-auto">
-          <div className="overflow-x-auto w-full">
+        {/* Heatmap container: enable full width scroll on small screens */}
+        <div className="flex h-auto w-full flex-1 items-center justify-center overflow-auto">
+          <div className="w-full">
             <svg
               viewBox={`0 0 ${totalWidth} ${totalHeight}`}
-              className="w-full md:min-w-[700px]"
+              className="w-auto"
               preserveAspectRatio="xMinYMin meet"
+              style={{ minWidth: totalWidth }}
             >
               {/* Days */}
               {heatmapDays.map((day, index) => (
