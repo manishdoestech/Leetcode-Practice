@@ -1,77 +1,110 @@
 "use client";
-
 import React from "react";
-import CodeMirror from "@uiw/react-codemirror";
-import { oneDark } from "@codemirror/theme-one-dark";
-import { python } from "@codemirror/lang-python";
-import { javascript } from "@codemirror/lang-javascript";
-import { java } from "@codemirror/lang-java";
-import { cpp } from "@codemirror/lang-cpp";
-import { markdown } from "@codemirror/lang-markdown";
-import { sql } from "@codemirror/lang-sql";
-import { json } from "@codemirror/lang-json";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { IconCheck, IconCopy } from "@tabler/icons-react";
 
-interface CodeBlockProps {
-  readonly code: string;
-  readonly language: string;
-  readonly filename?: string;
-}
+type CodeBlockProps = {
+  language: string;
+  filename: string;
+  highlightLines?: number[];
+} & (
+  | { code: string; tabs?: never }
+  | {
+      code?: never;
+      tabs: Array<{
+        name: string;
+        code: string;
+        language?: string;
+        highlightLines?: number[];
+      }>;
+    }
+);
 
-function getLanguageExtension(language: string) {
-  switch (language) {
-    case "python":
-      return python();
-    case "javascript":
-    case "js":
-      return javascript();
-    case "java":
-      return java();
-    case "cpp":
-    case "c++":
-      return cpp();
-    case "markdown":
-      return markdown();
-    case "sql":
-      return sql();
-    case "json":
-      return json();
-    default:
-      return [];
-  }
-}
+export const CodeBlock = ({
+  language,
+  filename,
+  code,
+  highlightLines = [],
+  tabs = [],
+}: CodeBlockProps) => {
+  const [copied, setCopied] = React.useState(false);
+  const [activeTab, setActiveTab] = React.useState(0);
+  const tabsExist = tabs.length > 0;
 
-export function CodeBlock({ code, language, filename }: CodeBlockProps) {
+  const copyToClipboard = async () => {
+    const textToCopy = tabsExist ? tabs[activeTab].code : code;
+    if (textToCopy) {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const activeCode = tabsExist ? tabs[activeTab].code : code;
+  const activeLanguage = tabsExist
+    ? tabs[activeTab].language ?? language
+    : language;
+  const activeHighlightLines = tabsExist
+    ? tabs[activeTab].highlightLines ?? []
+    : highlightLines;
+
   return (
-    <div className="w-full">
-      {filename && (
-        <div className="bg-gray-100 px-4 py-2 text-sm text-gray-700 font-mono border border-gray-200 rounded-t-lg">
-          {filename}
-        </div>
-      )}
-      <CodeMirror
-        value={code}
-        height="auto"
-        minHeight="120px"
-        maxHeight="400px"
-        theme={oneDark}
-        extensions={[getLanguageExtension(language)]}
-        readOnly
-        basicSetup={{
-          lineNumbers: true,
-          highlightActiveLine: false,
-          highlightActiveLineGutter: false,
-        }}
-        style={{
-          fontSize: 14,
-          borderTopLeftRadius: filename ? 0 : 8,
-          borderTopRightRadius: filename ? 0 : 8,
-          borderBottomLeftRadius: 8,
-          borderBottomRightRadius: 8,
-          border: "1px solid #e5e7eb",
+    <div className="relative w-full rounded-lg bg-slate-900 p-4 font-mono text-sm">
+      <div className="flex flex-col gap-2">
+        {tabsExist && (
+          <div className="flex overflow-x-auto">
+            {tabs.map((tab, idx) => (
+              <button
+                key={tab.name}
+                onClick={() => setActiveTab(idx)}
+                className={`px-3 py-2 text-xs transition-colors font-sans ${
+                  activeTab === idx
+                    ? "text-white"
+                    : "text-zinc-400 hover:text-zinc-200"
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
+        )}
+        {!tabsExist && filename && (
+          <div className="flex justify-between items-center py-2">
+            <div className="text-xs text-zinc-400">{filename}</div>
+            <button
+              onClick={copyToClipboard}
+              className="flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-sans"
+            >
+              {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
+            </button>
+          </div>
+        )}
+      </div>
+      <SyntaxHighlighter
+        language={activeLanguage}
+        style={atomDark}
+        customStyle={{
           margin: 0,
-          background: "#18181b",
+          padding: 0,
+          background: "transparent",
+          fontSize: "0.875rem",
         }}
-      />
+        wrapLines
+        showLineNumbers
+        lineProps={(lineNumber) => ({
+          style: {
+            backgroundColor: activeHighlightLines.includes(lineNumber)
+              ? "rgba(255,255,255,0.1)"
+              : "transparent",
+            display: "block",
+            width: "100%",
+          },
+        })}
+        PreTag="div"
+      >
+        {String(activeCode)}
+      </SyntaxHighlighter>
     </div>
   );
-}
+};
