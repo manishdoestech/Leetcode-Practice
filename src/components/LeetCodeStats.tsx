@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import OdometerChart from "./leetcode-stats/OdometerChart";
@@ -12,8 +12,17 @@ import { transformCalendarData } from "./leetcode-stats/utils";
 
 export default function LeetCodeStats() {
   const { stats, loading, error } = useLeetCodeStats();
+  const [initialLoaded, setInitialLoaded] = useState(false);
 
-  if (loading) return <ShimmerLoader />;
+  const loader = useMemo(() => <ShimmerLoader />, []);
+
+  // Once stats loaded initially, mark loaded. Only show shimmer on first load.
+  useEffect(() => {
+    if (!loading) {
+      setInitialLoaded(true);
+    }
+  }, [loading]);
+  if (loading && !initialLoaded) return loader;
   if (error || !stats || stats.status !== "success") {
     return <div className="my-8">Failed to load LeetCode stats.</div>;
   }

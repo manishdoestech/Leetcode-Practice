@@ -281,6 +281,21 @@ nav, .dropdown-menu, .prose nav {
   }
 }
 
+/* Responsive overrides for SplitPane on mobile */
+@media (max-width: 767px) {
+  .split-pane-left,
+  .split-pane-right {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  .split-pane-separator {
+    display: none !important;
+  }
+}
+
 /* LeetCode responsive breakpoint classes */
 @media (min-width: 768px) {
   .lc-md\:flex {
@@ -447,4 +462,118 @@ nav, .dropdown-menu, .prose nav {
   background-color: #374151 !important;
   color: #d1d5db !important;
   border-color: #4b5563 !important;
+}
+
+/* Problem Card Click/Focus State Override */
+.problem-card a:focus,
+.problem-card a:active,
+.problem-card a:focus-visible,
+.problem-card a:focus-within {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.problem-card [data-slot="card"]:focus,
+.problem-card [data-slot="card"]:active,
+.problem-card [data-slot="card"]:focus-visible {
+  outline: none !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}
+
+/* Prevent double borders on problem card interaction */
+.problem-card a:focus [data-slot="card"],
+.problem-card a:active [data-slot="card"],
+.problem-card a:focus-visible [data-slot="card"] {
+  border-width: 1px !important;
+}
+
+/* Remove any default link styling that might add borders */
+.problem-card a {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Markdown Content Dark Mode Override */
+.dark .html-content,
+.dark .html-content *,
+.dark .prose,
+.dark .prose * {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Force dark mode for problem page content areas */
+.dark .problem-content,
+.dark .solution-content {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.dark .problem-content *,
+.dark .solution-content * {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Override any prose styling that might interfere */
+.dark .prose-invert {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.dark .prose-invert * {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Force all content areas in problem page to be dark */
+.dark [data-slot="card"] .prose,
+.dark [data-slot="card"] .prose *,
+.dark [data-slot="card"] .html-content,
+.dark [data-slot="card"] .html-content * {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.dark .html-content pre,
+.dark .html-content code {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+.dark .html-content table {
+  background-color: transparent !important;
+  border-color: #374151 !important;
+}
+
+.dark .html-content blockquote {
+  background-color: #111827 !important;
+  border-left-color: #6b7280 !important;
+  color: #d1d5db !important;
+}
+
+/* Override backgrounds for problem and solution panes */
+.problem-content,
+.solution-content {
+  background-color: var(--color-card) !important;
+  color: var(--color-card-foreground) !important;
+}
+
+/* Force transparency for markdown/prose in problem and solution panes */
+.problem-content > .html-content,
+.problem-content > .prose,
+.solution-content > .html-content,
+.solution-content > .prose {
+  background-color: transparent !important;
+  color: var(--color-card-foreground) !important;
+}
+.problem-content > .html-content *,
+.problem-content > .prose *,
+.solution-content > .html-content *,
+.solution-content > .prose * {
+  background-color: transparent !important;
+  color: var(--color-card-foreground) !important;
 }

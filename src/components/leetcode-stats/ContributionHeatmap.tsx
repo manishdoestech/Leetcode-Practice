@@ -282,7 +282,7 @@ export default function ContributionHeatmap({
             </span>
             <span className="lc-md:text-base whitespace-nowrap text-label-2 dark:text-white">
               submissions in{" "}
-              {selectedYear === currentYear ? "the past year" : selectedYear}
+              {selectedYear === currentYear ? "current year" : selectedYear}
             </span>
             <div className="ml-1 mr-2 text-gray-5 dark:text-dark-gray-5">
               <svg
@@ -369,11 +369,11 @@ export default function ContributionHeatmap({
 
         {/* Heatmap */}
         <div className="flex h-auto w-full flex-1 items-center justify-center overflow-x-auto">
-          <div className="min-w-fit">
+          <div className="overflow-x-auto w-full">
             <svg
               viewBox={`0 0 ${totalWidth} ${totalHeight}`}
-              className="w-full"
-              style={{ minWidth: "700px" }}
+              className="w-full md:min-w-[700px]"
+              preserveAspectRatio="xMinYMin meet"
             >
               {/* Days */}
               {heatmapDays.map((day, index) => (

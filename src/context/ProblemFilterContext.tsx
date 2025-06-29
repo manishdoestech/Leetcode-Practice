@@ -1,13 +1,16 @@
 "use client";
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useMemo } from "react";
+import { Option } from "@/components/ui/multiple-selector";
 
 interface ProblemFilterContextType {
   search: string;
   setSearch: (s: string) => void;
   sort: "number" | "title";
   setSort: (s: "number" | "title") => void;
-  filter: "all" | "easy" | "medium" | "hard";
-  setFilter: (f: "all" | "easy" | "medium" | "hard") => void;
+  filter: Option[];
+  setFilter: (f: Option[]) => void;
+  topic: Option[];
+  setTopic: (t: Option[]) => void;
 }
 
 const ProblemFilterContext = createContext<
@@ -23,17 +26,22 @@ export function useProblemFilter() {
   return ctx;
 }
 
-export function ProblemFilterProvider({ children }: { children: ReactNode }) {
+export function ProblemFilterProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<"number" | "title">("number");
-  const [filter, setFilter] = useState<"all" | "easy" | "medium" | "hard">(
-    "all"
+  // Start with all difficulties selected
+  const allDifficulties: Option[] = ["Easy", "Medium", "Hard"].map(d => ({ value: d, label: d }));
+  const [filter, setFilter] = useState<Option[]>(allDifficulties);
+  const [topic, setTopic] = useState<Option[]>([]);
+
+  // Memoize context value to avoid unnecessary re-renders
+  const value = useMemo(
+    () => ({ search, setSearch, sort, setSort, filter, setFilter, topic, setTopic }),
+    [search, sort, filter, topic]
   );
 
   return (
-    <ProblemFilterContext.Provider
-      value={{ search, setSearch, sort, setSort, filter, setFilter }}
-    >
+    <ProblemFilterContext.Provider value={value}>
       {children}
     </ProblemFilterContext.Provider>
   );

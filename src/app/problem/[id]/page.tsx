@@ -6,7 +6,7 @@ import { MarkdownContent } from "@/components/MarkdownContent";
 import { CodeBlock } from "@/components/ui/code-block";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { SplitPane } from "@/components/SplitPane";
 
@@ -27,18 +27,18 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
   const getDifficultyColor = (difficulty?: string) => {
     switch (difficulty) {
       case "Easy":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 border-green-200 dark:border-green-700";
       case "Medium":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+        return "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 border-yellow-200 dark:border-yellow-700";
       case "Hard":
-        return "bg-red-100 text-red-800 border-red-200";
+        return "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 border-red-200 dark:border-red-700";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600";
     }
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground dark:bg-black">
       <div
         className="container mx-auto px-4 py-8 rounded-2xl shadow-lg"
         style={{
@@ -78,36 +78,36 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
         <Card className="rounded-xl overflow-hidden bg-card dark:bg-black text-card-foreground dark:text-white border border-border shadow-md">
           <SplitPane
             left={
-              <Card className="h-full rounded-none border-0 bg-card text-card-foreground dark:bg-black dark:text-white">
-                <CardHeader>
-                  <CardTitle className="text-xl text-card-foreground">
+              <div className="h-full bg-transparent text-card-foreground dark:text-white">
+                <div className="p-6 bg-white dark:bg-black border-b border-border">
+                  <h2 className="text-xl font-semibold text-card-foreground dark:text-white">
                     Problem Description
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="!bg-card !text-card-foreground rounded-xl">
+                  </h2>
+                </div>
+                <div className="p-6 bg-transparent text-card-foreground dark:text-white problem-content">
                   <MarkdownContent content={problem.description} />
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             }
             right={
-              <Card className="h-full rounded-xl border-0 !bg-card !text-card-foreground shadow-md">
-                <CardHeader>
-                  <CardTitle className="text-xl text-card-foreground">
+              <div className="h-full bg-transparent text-card-foreground dark:text-white">
+                <div className="p-6 bg-white dark:bg-black border-b border-border">
+                  <h2 className="text-xl font-semibold text-card-foreground dark:text-white">
                     Solution{problem.solutions.length > 1 ? "s" : ""}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6 !bg-card !text-card-foreground rounded-xl">
+                  </h2>
+                </div>
+                <div className="p-6 space-y-6 bg-transparent text-card-foreground dark:text-white solution-content">
                   {problem.solutions.map((solution, index) => (
                     <div key={solution.filename}>
                       {index > 0 && <Separator className="my-6" />}
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                          <h3 className="font-semibold text-card-foreground">
+                          <h3 className="font-semibold text-card-foreground dark:text-white">
                             {solution.filename}
                           </h3>
                           <Badge
                             variant="outline"
-                            className="bg-muted text-muted-foreground border-border"
+                            className="bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-300 border-border dark:border-gray-600"
                           >
                             {solution.language}
                           </Badge>
@@ -120,8 +120,8 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
                       </div>
                     </div>
                   ))}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             }
             minLeft={300}
             minRight={300}

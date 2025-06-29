@@ -108,6 +108,16 @@ export function ProblemCard({ problem }: ProblemCardProps) {
                 ))}
               </div>
             </div>
+            {/* Topic tags */}
+            {problem.topics && problem.topics.length > 0 && (
+              <div className="flex flex-wrap gap-1">
+                {problem.topics.map((topic) => (
+                  <Badge key={topic} variant="outline" className="text-xs">
+                    {topic}
+                  </Badge>
+                ))}
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

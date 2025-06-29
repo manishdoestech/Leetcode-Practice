@@ -33,7 +33,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ProblemFilterProvider>
             <Navbar />
-            <div className="pt-20">{children}</div>
+            <div className="pt-20 px-4 sm:px-6 lg:px-8">{children}</div>
           </ProblemFilterProvider>
         </ThemeProvider>
       </body>

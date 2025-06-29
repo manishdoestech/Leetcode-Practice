@@ -47,11 +47,11 @@ export function SplitPane({
   return (
     <div
       ref={containerRef}
-      className="flex w-full h-[70vh] min-h-[400px] max-h-[80vh] border border-border rounded-xl overflow-hidden bg-white dark:bg-black text-black dark:text-white shadow"
+      className="split-pane-container flex flex-col md:flex-row w-full h-auto md:h-[70vh] md:min-h-[400px] md:max-h-[80vh] border border-border rounded-xl overflow-hidden bg-white dark:bg-black text-black dark:text-white shadow"
       style={{ resize: "none" }}
     >
       <div
-        className="h-full overflow-auto bg-white dark:bg-black text-black dark:text-white"
+        className="split-pane-left w-full md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white"
         style={{
           width: leftWidth,
           minWidth: minLeft,
@@ -61,12 +61,12 @@ export function SplitPane({
         {left}
       </div>
       <hr
-        className="w-2 cursor-col-resize bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors h-full m-0"
+        className="split-pane-separator hidden md:block cursor-col-resize bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors h-full m-0"
         style={{ width: 8 }}
         onMouseDown={onMouseDown}
         draggable={false}
       />
-      <div className="flex-1 min-w-[250px] h-full overflow-auto bg-white dark:bg-black text-black dark:text-white">
+      <div className="split-pane-right w-full flex-1 md:min-w-[250px] h-auto md:h-full overflow-auto bg-white dark:bg-black text-black dark:text-white">
         {right}
       </div>
     </div>

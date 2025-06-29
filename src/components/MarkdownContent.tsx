@@ -28,7 +28,7 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
 
   return (
     <div
-      className={`html-content prose max-w-none !bg-card !text-card-foreground ${
+      className={`html-content prose max-w-none bg-white dark:bg-black text-gray-900 dark:text-white ${
         theme === "dark" ? "prose-invert" : ""
       }`}
       dangerouslySetInnerHTML={{ __html: processedContent }}
