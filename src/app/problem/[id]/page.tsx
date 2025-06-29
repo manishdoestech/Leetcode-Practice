@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { SplitPane } from "@/components/SplitPane";
-import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 interface ProblemPageProps {
   params: Promise<{
