@@ -39,13 +39,8 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
 
   return (
     <div className="min-h-screen bg-background text-foreground dark:bg-black">
-      <div
-        className="container mx-auto px-4 py-8 rounded-2xl shadow-lg"
-        style={{
-          backgroundColor: "var(--color-card)",
-          color: "var(--color-card-foreground)",
-        }}
-      >
+      {/* Only one main container, no double wrapping */}
+      <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
           <Link href="/">
@@ -78,25 +73,25 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
         <Card className="rounded-xl overflow-hidden bg-card dark:bg-black text-card-foreground dark:text-white border border-border shadow-md">
           <SplitPane
             left={
-              <div className="h-full bg-transparent text-card-foreground dark:text-white">
-                <div className="p-6 bg-white dark:bg-black border-b border-border">
+              <div className="h-full bg-card dark:bg-black text-card-foreground dark:text-white">
+                <div className="p-6 border-b border-border bg-card dark:bg-black">
                   <h2 className="text-xl font-semibold text-card-foreground dark:text-white">
                     Problem Description
                   </h2>
                 </div>
-                <div className="p-6 bg-transparent text-card-foreground dark:text-white problem-content">
+                <div className="p-6 problem-content bg-card dark:bg-black">
                   <MarkdownContent content={problem.description} />
                 </div>
               </div>
             }
             right={
-              <div className="h-full bg-transparent text-card-foreground dark:text-white">
-                <div className="p-6 bg-white dark:bg-black border-b border-border">
+              <div className="h-full bg-card dark:bg-black text-card-foreground dark:text-white">
+                <div className="p-6 border-b border-border bg-card dark:bg-black">
                   <h2 className="text-xl font-semibold text-card-foreground dark:text-white">
                     Solution{problem.solutions.length > 1 ? "s" : ""}
                   </h2>
                 </div>
-                <div className="p-6 space-y-6 bg-transparent text-card-foreground dark:text-white solution-content">
+                <div className="p-6 space-y-6 solution-content bg-card dark:bg-black">
                   {problem.solutions.map((solution, index) => (
                     <div key={solution.filename}>
                       {index > 0 && <Separator className="my-6" />}
@@ -112,11 +107,13 @@ export default async function ProblemPage({ params }: ProblemPageProps) {
                             {solution.language}
                           </Badge>
                         </div>
-                        <CodeBlock
-                          code={solution.code}
-                          language={solution.language}
-                          filename={solution.filename}
-                        />
+                        <div className="bg-card dark:bg-black rounded-lg overflow-hidden">
+                          <CodeBlock
+                            code={solution.code}
+                            language={solution.language}
+                            filename={solution.filename}
+                          />
+                        </div>
                       </div>
                     </div>
                   ))}
