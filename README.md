@@ -30,4 +30,8 @@ A collection of LeetCode questions to ace the coding interview!
 | ------- |
 | [0482-license-key-formatting](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0482-license-key-formatting) |
 | [0520-detect-capital](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0520-detect-capital) |
+## Math
+|  |
+| ------- |
+| [0007-reverse-integer](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0007-reverse-integer) |
 <!---LeetCode Topics End-->
