@@ -10,6 +10,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0027-remove-element](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0027-remove-element) |
 | [0088-merge-sorted-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0088-merge-sorted-array) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
+| [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 ## Hash Table
 |  |
 | ------- |
@@ -43,4 +44,8 @@ A collection of LeetCode questions to ace the coding interview!
 |  |
 | ------- |
 | [2903-insert-greatest-common-divisors-in-linked-list](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2903-insert-greatest-common-divisors-in-linked-list) |
+## Simulation
+|  |
+| ------- |
+| [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 <!---LeetCode Topics End-->
