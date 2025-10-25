@@ -11,6 +11,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0088-merge-sorted-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0088-merge-sorted-array) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
+| [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 ## Hash Table
 |  |
 | ------- |
@@ -31,6 +32,7 @@ A collection of LeetCode questions to ace the coding interview!
 | ------- |
 | [0482-license-key-formatting](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0482-license-key-formatting) |
 | [0520-detect-capital](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0520-detect-capital) |
+| [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 ## Math
 |  |
 | ------- |
@@ -48,4 +50,5 @@ A collection of LeetCode questions to ace the coding interview!
 |  |
 | ------- |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
+| [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 <!---LeetCode Topics End-->
