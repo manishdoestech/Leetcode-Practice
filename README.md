@@ -12,6 +12,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
+| [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
 ## Hash Table
 |  |
 | ------- |
@@ -33,6 +34,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0482-license-key-formatting](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0482-license-key-formatting) |
 | [0520-detect-capital](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0520-detect-capital) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
+| [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
 ## Math
 |  |
 | ------- |
