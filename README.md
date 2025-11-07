@@ -53,4 +53,8 @@ A collection of LeetCode questions to ace the coding interview!
 | ------- |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
+## Database
+|  |
+| ------- |
+| [0175-combine-two-tables](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0175-combine-two-tables) |
 <!---LeetCode Topics End-->
