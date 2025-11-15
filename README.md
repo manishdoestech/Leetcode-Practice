@@ -57,5 +57,6 @@ A collection of LeetCode questions to ace the coding interview!
 |  |
 | ------- |
 | [0175-combine-two-tables](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0175-combine-two-tables) |
+| [0182-duplicate-emails](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0182-duplicate-emails) |
 | [0626-exchange-seats](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0626-exchange-seats) |
 <!---LeetCode Topics End-->
