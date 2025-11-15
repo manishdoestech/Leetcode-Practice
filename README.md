@@ -60,5 +60,6 @@ A collection of LeetCode questions to ace the coding interview!
 | [0181-employees-earning-more-than-their-managers](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0181-employees-earning-more-than-their-managers) |
 | [0182-duplicate-emails](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0182-duplicate-emails) |
 | [0183-customers-who-never-order](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0183-customers-who-never-order) |
+| [0601-human-traffic-of-stadium](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0601-human-traffic-of-stadium) |
 | [0626-exchange-seats](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0626-exchange-seats) |
 <!---LeetCode Topics End-->
