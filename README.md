@@ -10,6 +10,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0027-remove-element](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0027-remove-element) |
 | [0088-merge-sorted-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0088-merge-sorted-array) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 | [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
@@ -18,6 +19,7 @@ A collection of LeetCode questions to ace the coding interview!
 | ------- |
 | [0001-two-sum](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0001-two-sum) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
 ## Two Pointers
 |  |
 | ------- |
@@ -28,6 +30,7 @@ A collection of LeetCode questions to ace the coding interview!
 | ------- |
 | [0088-merge-sorted-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0088-merge-sorted-array) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
 ## String
 |  |
 | ------- |
@@ -64,4 +67,24 @@ A collection of LeetCode questions to ace the coding interview!
 | [0601-human-traffic-of-stadium](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0601-human-traffic-of-stadium) |
 | [0626-exchange-seats](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0626-exchange-seats) |
 | [3792-find-invalid-ip-addresses](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3792-find-invalid-ip-addresses) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
+## Bucket Sort
+|  |
+| ------- |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
+## Counting
+|  |
+| ------- |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
+## Quickselect
+|  |
+| ------- |
+| [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
 <!---LeetCode Topics End-->
