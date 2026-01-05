@@ -42,6 +42,7 @@ A collection of LeetCode questions to ace the coding interview!
 |  |
 | ------- |
 | [0007-reverse-integer](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0007-reverse-integer) |
+| [0009-palindrome-number](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0009-palindrome-number) |
 | [2903-insert-greatest-common-divisors-in-linked-list](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2903-insert-greatest-common-divisors-in-linked-list) |
 ## Linked List
 |  |
