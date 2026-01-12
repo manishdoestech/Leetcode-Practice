@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { Tooltip } from "react-tooltip";
 import { CalendarData } from "./types";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Card } from "@/components/ui/card";
@@ -388,9 +389,16 @@ export default function ContributionHeatmap({
                   fill={day.fill}
                   rx="2"
                   ry="2"
-                  className={
-                    !day.isEmpty ? "cursor-pointer hover:opacity-80" : ""
-                  }
+                  className={!day.isEmpty ? "cursor-pointer hover:opacity-80" : ""}
+                  {...(!day.isEmpty && {
+                    "data-tooltip-id": "heatmap-tooltip",
+                    "data-tooltip-content": `${new Date(day.date).toLocaleDateString(undefined, {
+                      weekday: "short",
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })} — ${day.count} ${day.count === 1 ? "question" : "questions"} solved`,
+                  })}
                 />
               ))}
 
@@ -409,6 +417,12 @@ export default function ContributionHeatmap({
                 </text>
               ))}
             </svg>
+            <Tooltip
+              id="heatmap-tooltip"
+              place="top"
+              delayShow={0}
+              className="!bg-gray-900 dark:!bg-gray-100 !text-white dark:!text-gray-900 !text-xs !rounded-md !px-2 !py-1 !z-50"
+            />
           </div>
         </div>
 
