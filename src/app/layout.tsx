@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   title: "LeetCode Practice",
   description: "A collection of LeetCode problems and their solutions",
   icons: {
-    icon: "/leetcode.ico",
-    shortcut: "/leetcode.ico",
-    apple: "/leetcode.ico",
+    icon: "https://buildwithmanish.com/developer.png",
+    shortcut: "https://buildwithmanish.com/developer.png",
+    apple: "https://buildwithmanish.com/developer.png",
   },
   openGraph: {
     title: "LeetCode Practice",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "LeetCode Practice",
     images: [
       {
-        url: "https://dsa.buildwithmanish.com/Arch.png",
+        url: "https://buildwithmanish.com/developer.png",
         width: 1200,
         height: 630,
         alt: "LeetCode Practice - Problem solving tracker",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LeetCode Practice",
     description: "A collection of LeetCode problems and their solutions",
-    images: ["https://dsa.buildwithmanish.com/Arch.png"],
+    images: ["https://buildwithmanish.com/developer.png"],
   },
   metadataBase: new URL("https://dsa.buildwithmanish.com"),
 };
