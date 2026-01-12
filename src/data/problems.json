@@ -6,9 +6,40 @@
     "description": "<h2><a href=\"https://leetcode.com/problems/two-sum\">1. Two Sum</a></h2><h3>Easy</h3><hr><p>Given an array of integers <code>nums</code>&nbsp;and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>\n\n<p>You may assume that each input would have <strong><em>exactly</em> one solution</strong>, and you may not use the <em>same</em> element twice.</p>\n\n<p>You can return the answer in any order.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [2,7,11,15], target = 9\n<strong>Output:</strong> [0,1]\n<strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,2,4], target = 6\n<strong>Output:</strong> [1,2]\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,3], target = 6\n<strong>Output:</strong> [0,1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>\n\t<li><strong>Only one valid answer exists.</strong></li>\n</ul>\n\n<p>&nbsp;</p>\n<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face=\"monospace\">&nbsp;</font>time complexity?",
     "solutions": [
       {
+        "language": "java",
+        "code": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        Map<Integer,Integer> numMap=new HashMap<>();\n    for(int i=0;i<nums.length;i++){\n        int complement=target-nums[i];\n        if(numMap.containsKey(complement)){\n            return new int[]{numMap.get(complement),i};\n        }\n        numMap.put(nums[i],i);\n    }\n    return new int[]{};\n    }\n}\n",
+        "filename": "0001-two-sum.java"
+      },
+      {
         "language": "python",
         "code": "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        numMap = {}\n        n = len(nums)\n\n        for i in range(n):\n            complement = target - nums[i]\n            if complement in numMap:\n                return [numMap[complement], i]\n            numMap[nums[i]] = i\n\n        return []  # No solution found",
         "filename": "0001-two-sum.py"
+      }
+    ]
+  },
+  {
+    "id": "0007-reverse-integer",
+    "title": "7. Reverse Integer",
+    "difficulty": "Medium",
+    "description": "<h2><a href=\"https://leetcode.com/problems/reverse-integer\">7. Reverse Integer</a></h2><h3>Medium</h3><hr><p>Given a signed 32-bit integer <code>x</code>, return <code>x</code><em> with its digits reversed</em>. If reversing <code>x</code> causes the value to go outside the signed 32-bit integer range <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>, then return <code>0</code>.</p>\n\n<p><strong>Assume the environment does not allow you to store 64-bit integers (signed or unsigned).</strong></p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = 123\n<strong>Output:</strong> 321\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = -123\n<strong>Output:</strong> -321\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = 120\n<strong>Output:</strong> 21\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>-2<sup>31</sup> &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "class Solution:\n    def reverse(self, x: int) -> int:\n        s = str(x)      \n        if s[0] == '-':\n            a=int('-' + s[:0:-1])\n            return 0 if a<(-2**31) else a\n        else:\n            b=int(s[::-1])\n            return 0 if b>(2**31-1) else b",
+        "filename": "0007-reverse-integer.py"
+      }
+    ]
+  },
+  {
+    "id": "0009-palindrome-number",
+    "title": "9. Palindrome Number",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/palindrome-number\">9. Palindrome Number</a></h2><h3>Easy</h3><hr><p>Given an integer <code>x</code>, return <code>true</code><em> if </em><code>x</code><em> is a </em><span data-keyword=\"palindrome-integer\"><em><strong>palindrome</strong></em></span><em>, and </em><code>false</code><em> otherwise</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = 121\n<strong>Output:</strong> true\n<strong>Explanation:</strong> 121 reads as 121 from left to right and from right to left.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = -121\n<strong>Output:</strong> false\n<strong>Explanation:</strong> From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = 10\n<strong>Output:</strong> false\n<strong>Explanation:</strong> Reads 01 from right to left. Therefore it is not a palindrome.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>-2<sup>31</sup>&nbsp;&lt;= x &lt;= 2<sup>31</sup>&nbsp;- 1</code></li>\n</ul>\n\n<p>&nbsp;</p>\n<strong>Follow up:</strong> Could you solve it without converting the integer to a string?",
+    "solutions": [
+      {
+        "language": "java",
+        "code": "class Solution {\n    public boolean isPalindrome(int x) {\n        //reversing digits\n        if(x<0||(x%10==0 && x!=0)) return false;\n        int reversedHalf=0;\n        while(x>reversedHalf){\n            reversedHalf=x%10+10*reversedHalf;\n            x/=10;\n        }\n        return reversedHalf==x||x==reversedHalf/10;\n    }\n}",
+        "filename": "0009-palindrome-number.java"
       }
     ]
   },
@@ -39,15 +70,111 @@
     ]
   },
   {
+    "id": "0175-combine-two-tables",
+    "title": "175. Combine Two Tables",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/combine-two-tables\">175. Combine Two Tables</a></h2><h3>Easy</h3><hr><p>Table: <code>Person</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| personId    | int     |\n| lastName    | varchar |\n| firstName   | varchar |\n+-------------+---------+\npersonId is the primary key (column with unique values) for this table.\nThis table contains information about the ID of some persons and their first and last names.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Table: <code>Address</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| addressId   | int     |\n| personId    | int     |\n| city        | varchar |\n| state       | varchar |\n+-------------+---------+\naddressId is the primary key (column with unique values) for this table.\nEach row of this table contains information about the city and state of one person with ID = PersonId.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution to report the first name, last name, city, and state of each person in the <code>Person</code> table. If the address of a <code>personId</code> is not present in the <code>Address</code> table, report <code>null</code> instead.</p>\n\n<p>Return the result table in <strong>any order</strong>.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nPerson table:\n+----------+----------+-----------+\n| personId | lastName | firstName |\n+----------+----------+-----------+\n| 1        | Wang     | Allen     |\n| 2        | Alice    | Bob       |\n+----------+----------+-----------+\nAddress table:\n+-----------+----------+---------------+------------+\n| addressId | personId | city          | state      |\n+-----------+----------+---------------+------------+\n| 1         | 2        | New York City | New York   |\n| 2         | 3        | Leetcode      | California |\n+-----------+----------+---------------+------------+\n<strong>Output:</strong> \n+-----------+----------+---------------+----------+\n| firstName | lastName | city          | state    |\n+-----------+----------+---------------+----------+\n| Allen     | Wang     | Null          | Null     |\n| Bob       | Alice    | New York City | New York |\n+-----------+----------+---------------+----------+\n<strong>Explanation:</strong> \nThere is no address in the address table for the personId = 1 so we return null in their city and state.\naddressId = 1 contains information about the address of personId = 2.\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "SELECT a.firstName, a.lastName, b.city, b.state\nFROM Person a\nLEFT JOIN Address b ON a.personId = b.personId;",
+        "filename": "0175-combine-two-tables.sql"
+      }
+    ]
+  },
+  {
+    "id": "0181-employees-earning-more-than-their-managers",
+    "title": "181. Employees Earning More Than Their Managers",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/employees-earning-more-than-their-managers\">181. Employees Earning More Than Their Managers</a></h2><h3>Easy</h3><hr><p>Table: <code>Employee</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| id          | int     |\n| name        | varchar |\n| salary      | int     |\n| managerId   | int     |\n+-------------+---------+\nid is the primary key (column with unique values) for this table.\nEach row of this table indicates the ID of an employee, their name, salary, and the ID of their manager.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution&nbsp;to find the employees who earn more than their managers.</p>\n\n<p>Return the result table in <strong>any order</strong>.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nEmployee table:\n+----+-------+--------+-----------+\n| id | name  | salary | managerId |\n+----+-------+--------+-----------+\n| 1  | Joe   | 70000  | 3         |\n| 2  | Henry | 80000  | 4         |\n| 3  | Sam   | 60000  | Null      |\n| 4  | Max   | 90000  | Null      |\n+----+-------+--------+-----------+\n<strong>Output:</strong> \n+----------+\n| Employee |\n+----------+\n| Joe      |\n+----------+\n<strong>Explanation:</strong> Joe is the only employee who earns more than his manager.\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "# Write your MySQL query statement below\nselect a.name as Employee from Employee a,Employee b where b.id=a.managerid and a.salary>b.salary;\n-- select e.name as Employee from Employee as e join Employee as n where e.managerid=n.id and e.salary>n.salary;",
+        "filename": "0181-employees-earning-more-than-their-managers.sql"
+      }
+    ]
+  },
+  {
+    "id": "0182-duplicate-emails",
+    "title": "182. Duplicate Emails",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/duplicate-emails\">182. Duplicate Emails</a></h2><h3>Easy</h3><hr><p>Table: <code>Person</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| id          | int     |\n| email       | varchar |\n+-------------+---------+\nid is the primary key (column with unique values) for this table.\nEach row of this table contains an email. The emails will not contain uppercase letters.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution to report all the duplicate emails. Note that it&#39;s guaranteed that the email&nbsp;field is not NULL.</p>\n\n<p>Return the result table in <strong>any order</strong>.</p>\n\n<p>The&nbsp;result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nPerson table:\n+----+---------+\n| id | email   |\n+----+---------+\n| 1  | a@b.com |\n| 2  | c@d.com |\n| 3  | a@b.com |\n+----+---------+\n<strong>Output:</strong> \n+---------+\n| Email   |\n+---------+\n| a@b.com |\n+---------+\n<strong>Explanation:</strong> a@b.com is repeated two times.\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "# Write your MySQL query statement below\nselect DISTINCT(a.email) from Person a,Person b where a.id<>b.id and a.email=b.email; ",
+        "filename": "0182-duplicate-emails.sql"
+      }
+    ]
+  },
+  {
+    "id": "0183-customers-who-never-order",
+    "title": "183. Customers Who Never Order",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/customers-who-never-order\">183. Customers Who Never Order</a></h2><h3>Easy</h3><hr><p>Table: <code>Customers</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| id          | int     |\n| name        | varchar |\n+-------------+---------+\nid is the primary key (column with unique values) for this table.\nEach row of this table indicates the ID and name of a customer.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Table: <code>Orders</code></p>\n\n<pre>\n+-------------+------+\n| Column Name | Type |\n+-------------+------+\n| id          | int  |\n| customerId  | int  |\n+-------------+------+\nid is the primary key (column with unique values) for this table.\ncustomerId is a foreign key (reference columns) of the ID from the Customers table.\nEach row of this table indicates the ID of an order and the ID of the customer who ordered it.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution to find all customers who never order anything.</p>\n\n<p>Return the result table in <strong>any order</strong>.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nCustomers table:\n+----+-------+\n| id | name  |\n+----+-------+\n| 1  | Joe   |\n| 2  | Henry |\n| 3  | Sam   |\n| 4  | Max   |\n+----+-------+\nOrders table:\n+----+------------+\n| id | customerId |\n+----+------------+\n| 1  | 3          |\n| 2  | 1          |\n+----+------------+\n<strong>Output:</strong> \n+-----------+\n| Customers |\n+-----------+\n| Henry     |\n| Max       |\n+-----------+\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "# Write your MySQL query statement below\nselect name as Customers from Customers where id not in (SELECT customerId FROM Orders);",
+        "filename": "0183-customers-who-never-order.sql"
+      }
+    ]
+  },
+  {
     "id": "0217-contains-duplicate",
     "title": "217. Contains Duplicate",
     "difficulty": "Easy",
     "description": "<h2><a href=\"https://leetcode.com/problems/contains-duplicate\">217. Contains Duplicate</a></h2><h3>Easy</h3><hr><p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears <strong>at least twice</strong> in the array, and return <code>false</code> if every element is distinct.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1,2,3,1]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n\n<p><strong>Explanation:</strong></p>\n\n<p>The element 1 occurs at the indices 0 and 3.</p>\n</div>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1,2,3,4]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">false</span></p>\n\n<p><strong>Explanation:</strong></p>\n\n<p>All elements are distinct.</p>\n</div>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1,1,1,3,3,4,3,2,4,2]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>\n</ul>\n",
     "solutions": [
       {
+        "language": "java",
+        "code": "class Solution {\n    public boolean containsDuplicate(int[] nums) {\n        Set<Integer> set = new HashSet<>();\n        for (int num : nums) {\n            if (!set.add(num)) {\n                return true;  // already present\n            }\n        }\n        return false;\n    }\n}",
+        "filename": "0217-contains-duplicate.java"
+      },
+      {
         "language": "python",
         "code": "class Solution:\n    def containsDuplicate(self, nums: List[int]) -> bool:\n        maps={}\n        for i in nums:\n            if i in maps:\n                return True\n            maps[i]=True\n    \n        return False",
         "filename": "0217-contains-duplicate.py"
+      }
+    ]
+  },
+  {
+    "id": "0242-valid-anagram",
+    "title": "242. Valid Anagram",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/valid-anagram\">242. Valid Anagram</a></h2><h3>Easy</h3><hr><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an <span data-keyword=\"anagram\">anagram</span> of <code>s</code>, and <code>false</code> otherwise.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;anagram&quot;, t = &quot;nagaram&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;rat&quot;, t = &quot;car&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">false</span></p>\n</div>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length, t.length &lt;= 5 * 10<sup>4</sup></code></li>\n\t<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>\n",
+    "solutions": [
+      {
+        "language": "java",
+        "code": "import java.util.HashMap;\nimport java.util.Map;\n\nclass Solution {\n    public boolean isAnagram(String s, String t) {  \nreturn Arrays.equals(\n        s.chars().sorted().toArray(), \n        t.chars().sorted().toArray()\n    );        \n    }\n}",
+        "filename": "0242-valid-anagram.java"
+      }
+    ]
+  },
+  {
+    "id": "0262-trips-and-users",
+    "title": "262. Trips and Users",
+    "difficulty": "Hard",
+    "description": "<h2><a href=\"https://leetcode.com/problems/trips-and-users\">262. Trips and Users</a></h2><h3>Hard</h3><hr><p>Table: <code>Trips</code></p>\n\n<pre>\n+-------------+----------+\n| Column Name | Type     |\n+-------------+----------+\n| id          | int      |\n| client_id   | int      |\n| driver_id   | int      |\n| city_id     | int      |\n| status      | enum     |\n| request_at  | varchar  |     \n+-------------+----------+\nid is the primary key (column with unique values) for this table.\nThe table holds all taxi trips. Each trip has a unique id, while client_id and driver_id are foreign keys to the users_id at the Users table.\nStatus is an ENUM (category) type of (&#39;completed&#39;, &#39;cancelled_by_driver&#39;, &#39;cancelled_by_client&#39;).\n</pre>\n\n<p> </p>\n\n<p>Table: <code>Users</code></p>\n\n<pre>\n+-------------+----------+\n| Column Name | Type     |\n+-------------+----------+\n| users_id    | int      |\n| banned      | enum     |\n| role        | enum     |\n+-------------+----------+\nusers_id is the primary key (column with unique values) for this table.\nThe table holds all users. Each user has a unique users_id, and role is an ENUM type of (&#39;client&#39;, &#39;driver&#39;, &#39;partner&#39;).\nbanned is an ENUM (category) type of (&#39;Yes&#39;, &#39;No&#39;).\n</pre>\n\n<p> </p>\n\n<p>The <strong>cancellation rate</strong> is computed by dividing the number of canceled (by client or driver) requests with unbanned users by the total number of requests with unbanned users on that day.</p>\n\n<p>Write a solution to find the <strong>cancellation rate</strong> of requests with unbanned users (<strong>both client and driver must not be banned</strong>) each day between <code>&quot;2013-10-01&quot;</code> and <code>&quot;2013-10-03&quot;</code> with <strong>at least</strong> one trip. Round <code>Cancellation Rate</code> to <strong>two decimal</strong> points.</p>\n\n<p>Return the result table in <strong>any order</strong>.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nTrips table:\n+----+-----------+-----------+---------+---------------------+------------+\n| id | client_id | driver_id | city_id | status              | request_at |\n+----+-----------+-----------+---------+---------------------+------------+\n| 1  | 1         | 10        | 1       | completed           | 2013-10-01 |\n| 2  | 2         | 11        | 1       | cancelled_by_driver | 2013-10-01 |\n| 3  | 3         | 12        | 6       | completed           | 2013-10-01 |\n| 4  | 4         | 13        | 6       | cancelled_by_client | 2013-10-01 |\n| 5  | 1         | 10        | 1       | completed           | 2013-10-02 |\n| 6  | 2         | 11        | 6       | completed           | 2013-10-02 |\n| 7  | 3         | 12        | 6       | completed           | 2013-10-02 |\n| 8  | 2         | 12        | 12      | completed           | 2013-10-03 |\n| 9  | 3         | 10        | 12      | completed           | 2013-10-03 |\n| 10 | 4         | 13        | 12      | cancelled_by_driver | 2013-10-03 |\n+----+-----------+-----------+---------+---------------------+------------+\nUsers table:\n+----------+--------+--------+\n| users_id | banned | role   |\n+----------+--------+--------+\n| 1        | No     | client |\n| 2        | Yes    | client |\n| 3        | No     | client |\n| 4        | No     | client |\n| 10       | No     | driver |\n| 11       | No     | driver |\n| 12       | No     | driver |\n| 13       | No     | driver |\n+----------+--------+--------+\n<strong>Output:</strong> \n+------------+-------------------+\n| Day        | Cancellation Rate |\n+------------+-------------------+\n| 2013-10-01 | 0.33              |\n| 2013-10-02 | 0.00              |\n| 2013-10-03 | 0.50              |\n+------------+-------------------+\n<strong>Explanation:</strong> \nOn 2013-10-01:\n  - There were 4 requests in total, 2 of which were canceled.\n  - However, the request with Id=2 was made by a banned client (User_Id=2), so it is ignored in the calculation.\n  - Hence there are 3 unbanned requests in total, 1 of which was canceled.\n  - The Cancellation Rate is (1 / 3) = 0.33\nOn 2013-10-02:\n  - There were 3 requests in total, 0 of which were canceled.\n  - The request with Id=6 was made by a banned client, so it is ignored.\n  - Hence there are 2 unbanned requests in total, 0 of which were canceled.\n  - The Cancellation Rate is (0 / 2) = 0.00\nOn 2013-10-03:\n  - There were 3 requests in total, 1 of which was canceled.\n  - The request with Id=8 was made by a banned client, so it is ignored.\n  - Hence there are 2 unbanned request in total, 1 of which were canceled.\n  - The Cancellation Rate is (1 / 2) = 0.50\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "select\nRequest_at as Day,\nround(sum(Status in ('cancelled_by_driver', 'cancelled_by_client'))/count(*),2) as 'Cancellation Rate'\nfrom Trips\nwhere\nClient_Id not in (select Users_Id from Users where Banned ='Yes' and Role = 'client') and\nDriver_Id not in (select Users_Id from Users where Banned ='Yes' and Role = 'driver') and\nRequest_at between '2013-10-01' and '2013-10-03'\ngroup by Request_at\n;",
+        "filename": "0262-trips-and-users.sql"
+      }
+    ]
+  },
+  {
+    "id": "0347-top-k-frequent-elements",
+    "title": "347. Top K Frequent Elements",
+    "difficulty": "Medium",
+    "description": "<h2><a href=\"https://leetcode.com/problems/top-k-frequent-elements\">347. Top K Frequent Elements</a></h2><h3>Medium</h3><hr><p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k</code> <em>most frequent elements</em>. You may return the answer in <strong>any order</strong>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1,1,1,2,2,3], k = 2</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">[1,2]</span></p>\n</div>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1], k = 1</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">[1]</span></p>\n</div>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1,2,1,2,1,2,3,1,3,2], k = 2</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">[1,2]</span></p>\n</div>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>\n\t<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>\n\t<li><code>k</code> is in the range <code>[1, the number of unique elements in the array]</code>.</li>\n\t<li>It is <strong>guaranteed</strong> that the answer is <strong>unique</strong>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>Follow up:</strong> Your algorithm&#39;s time complexity must be better than <code>O(n log n)</code>, where n is the array&#39;s size.</p>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "class Solution:\n    def topKFrequent(self, nums: List[int], k: int) -> List[int]:\n        c = Counter(nums)\n        return [num for num, freq in c.most_common(k)]",
+        "filename": "0347-top-k-frequent-elements.py"
       }
     ]
   },
@@ -78,6 +205,110 @@
     ]
   },
   {
+    "id": "0601-human-traffic-of-stadium",
+    "title": "601. Human Traffic of Stadium",
+    "difficulty": "Hard",
+    "description": "<h2><a href=\"https://leetcode.com/problems/human-traffic-of-stadium\">601. Human Traffic of Stadium</a></h2><h3>Hard</h3><hr><p>Table: <code>Stadium</code></p>\n\n<pre>\n+---------------+---------+\n| Column Name   | Type    |\n+---------------+---------+\n| id            | int     |\n| visit_date    | date    |\n| people        | int     |\n+---------------+---------+\nvisit_date is the column with unique values for this table.\nEach row of this table contains the visit date and visit id to the stadium with the number of people during the visit.\nAs the id increases, the date increases as well.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution to display the records with three or more rows with <strong>consecutive</strong> <code>id</code>&#39;s, and the number of people is greater than or equal to 100 for each.</p>\n\n<p>Return the result table ordered by <code>visit_date</code> in <strong>ascending order</strong>.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nStadium table:\n+------+------------+-----------+\n| id   | visit_date | people    |\n+------+------------+-----------+\n| 1    | 2017-01-01 | 10        |\n| 2    | 2017-01-02 | 109       |\n| 3    | 2017-01-03 | 150       |\n| 4    | 2017-01-04 | 99        |\n| 5    | 2017-01-05 | 145       |\n| 6    | 2017-01-06 | 1455      |\n| 7    | 2017-01-07 | 199       |\n| 8    | 2017-01-09 | 188       |\n+------+------------+-----------+\n<strong>Output:</strong> \n+------+------------+-----------+\n| id   | visit_date | people    |\n+------+------------+-----------+\n| 5    | 2017-01-05 | 145       |\n| 6    | 2017-01-06 | 1455      |\n| 7    | 2017-01-07 | 199       |\n| 8    | 2017-01-09 | 188       |\n+------+------------+-----------+\n<strong>Explanation:</strong> \nThe four rows with ids 5, 6, 7, and 8 have consecutive ids and each of them has &gt;= 100 people attended. Note that row 8 was included even though the visit_date was not the next day after row 7.\nThe rows with ids 2 and 3 are not included because we need at least three consecutive ids.\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "WITH FilteredStadium AS (\n    SELECT *\n    FROM Stadium\n    WHERE people >= 100\n),\nConsecutiveCheck AS (\n    SELECT \n        *,\n        LAG(id, 1) OVER (ORDER BY id) AS prev_id_1,\n        LAG(id, 2) OVER (ORDER BY id) AS prev_id_2,\n        LEAD(id, 1) OVER (ORDER BY id) AS next_id_1,\n        LEAD(id, 2) OVER (ORDER BY id) AS next_id_2\n    FROM FilteredStadium\n)\nSELECT \n    id, \n    visit_date, \n    people\nFROM ConsecutiveCheck\nWHERE\n    (next_id_1 = id + 1 AND next_id_2 = id + 2) \n    OR (prev_id_1 = id - 1 AND next_id_1 = id + 1) \n    OR (prev_id_1 = id - 1 AND prev_id_2 = id - 2)\nORDER BY visit_date;",
+        "filename": "0601-human-traffic-of-stadium.sql"
+      }
+    ]
+  },
+  {
+    "id": "0626-exchange-seats",
+    "title": "626. Exchange Seats",
+    "difficulty": "Medium",
+    "description": "<h2><a href=\"https://leetcode.com/problems/exchange-seats\">626. Exchange Seats</a></h2><h3>Medium</h3><hr><p>Table: <code>Seat</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| id          | int     |\n| student     | varchar |\n+-------------+---------+\nid is the primary key (unique value) column for this table.\nEach row of this table indicates the name and the ID of a student.\nThe ID sequence always starts from 1 and increments continuously.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.</p>\n\n<p>Return the result table ordered by <code>id</code> <strong>in ascending order</strong>.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nSeat table:\n+----+---------+\n| id | student |\n+----+---------+\n| 1  | Abbot   |\n| 2  | Doris   |\n| 3  | Emerson |\n| 4  | Green   |\n| 5  | Jeames  |\n+----+---------+\n<strong>Output:</strong> \n+----+---------+\n| id | student |\n+----+---------+\n| 1  | Doris   |\n| 2  | Abbot   |\n| 3  | Green   |\n| 4  | Emerson |\n| 5  | Jeames  |\n+----+---------+\n<strong>Explanation:</strong> \nNote that if the number of students is odd, there is no need to change the last one&#39;s seat.\n</pre>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "SELECT \n    CASE\n        WHEN id % 2 = 1 AND id + 1 <= (SELECT MAX(id) FROM Seat) THEN id + 1\n        WHEN id % 2 = 0 THEN id - 1\n        ELSE id\n    END AS id,\n    student\nFROM Seat\nORDER BY id;\n",
+        "filename": "0626-exchange-seats.sql"
+      }
+    ]
+  },
+  {
+    "id": "2048-build-array-from-permutation",
+    "title": "2048. Build Array from Permutation",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/build-array-from-permutation\">2048. Build Array from Permutation</a></h2><h3>Easy</h3><hr><p>Given a <strong>zero-based permutation</strong> <code>nums</code> (<strong>0-indexed</strong>), build an array <code>ans</code> of the <strong>same length</strong> where <code>ans[i] = nums[nums[i]]</code> for each <code>0 &lt;= i &lt; nums.length</code> and return it.</p>\n\n<p>A <strong>zero-based permutation</strong> <code>nums</code> is an array of <strong>distinct</strong> integers from <code>0</code> to <code>nums.length - 1</code> (<strong>inclusive</strong>).</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [0,2,1,5,3,4]\n<strong>Output:</strong> [0,1,2,4,5,3]<strong>\nExplanation:</strong> The array ans is built as follows: \nans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]\n    = [nums[0], nums[2], nums[1], nums[5], nums[3], nums[4]]\n    = [0,1,2,4,5,3]</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [5,0,1,2,3,4]\n<strong>Output:</strong> [4,5,0,1,2,3]\n<strong>Explanation:</strong> The array ans is built as follows:\nans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]], nums[nums[5]]]\n    = [nums[5], nums[0], nums[1], nums[2], nums[3], nums[4]]\n    = [4,5,0,1,2,3]</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 1000</code></li>\n\t<li><code>0 &lt;= nums[i] &lt; nums.length</code></li>\n\t<li>The elements in <code>nums</code> are <strong>distinct</strong>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>Follow-up:</strong> Can you solve it without using an extra space (i.e., <code>O(1)</code> memory)?</p>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "class Solution:\n    def buildArray(self, nums: List[int]) -> List[int]:\n        return [nums[nums[i]] for i in range(len(nums))]",
+        "filename": "2048-build-array-from-permutation.py"
+      }
+    ]
+  },
+  {
+    "id": "2137-final-value-of-variable-after-performing-operations",
+    "title": "2137. Final Value of Variable After Performing Operations",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/final-value-of-variable-after-performing-operations\">2137. Final Value of Variable After Performing Operations</a></h2><h3>Easy</h3><hr><p>There is a programming language with only <strong>four</strong> operations and <strong>one</strong> variable <code>X</code>:</p>\n\n<ul>\n\t<li><code>++X</code> and <code>X++</code> <strong>increments</strong> the value of the variable <code>X</code> by <code>1</code>.</li>\n\t<li><code>--X</code> and <code>X--</code> <strong>decrements</strong> the value of the variable <code>X</code> by <code>1</code>.</li>\n</ul>\n\n<p>Initially, the value of <code>X</code> is <code>0</code>.</p>\n\n<p>Given an array of strings <code>operations</code> containing a list of operations, return <em>the <strong>final </strong>value of </em><code>X</code> <em>after performing all the operations</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> operations = [&quot;--X&quot;,&quot;X++&quot;,&quot;X++&quot;]\n<strong>Output:</strong> 1\n<strong>Explanation:</strong>&nbsp;The operations are performed as follows:\nInitially, X = 0.\n--X: X is decremented by 1, X =  0 - 1 = -1.\nX++: X is incremented by 1, X = -1 + 1 =  0.\nX++: X is incremented by 1, X =  0 + 1 =  1.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> operations = [&quot;++X&quot;,&quot;++X&quot;,&quot;X++&quot;]\n<strong>Output:</strong> 3\n<strong>Explanation: </strong>The operations are performed as follows:\nInitially, X = 0.\n++X: X is incremented by 1, X = 0 + 1 = 1.\n++X: X is incremented by 1, X = 1 + 1 = 2.\nX++: X is incremented by 1, X = 2 + 1 = 3.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> operations = [&quot;X++&quot;,&quot;++X&quot;,&quot;--X&quot;,&quot;X--&quot;]\n<strong>Output:</strong> 0\n<strong>Explanation:</strong>&nbsp;The operations are performed as follows:\nInitially, X = 0.\nX++: X is incremented by 1, X = 0 + 1 = 1.\n++X: X is incremented by 1, X = 1 + 1 = 2.\n--X: X is decremented by 1, X = 2 - 1 = 1.\nX--: X is decremented by 1, X = 1 - 1 = 0.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= operations.length &lt;= 100</code></li>\n\t<li><code>operations[i]</code> will be either <code>&quot;++X&quot;</code>, <code>&quot;X++&quot;</code>, <code>&quot;--X&quot;</code>, or <code>&quot;X--&quot;</code>.</li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "class Solution:\n    def finalValueAfterOperations(self, operations: List[str]) -> int:\n        ans=0\n        for i in range(len(operations)):\n            if operations[i]==\"X++\" or operations[i]==\"++X\":\n                ans+=1;\n            else:\n                ans-=1\n        return ans",
+        "filename": "2137-final-value-of-variable-after-performing-operations.py"
+      }
+    ]
+  },
+  {
+    "id": "2746-filter-elements-from-array",
+    "title": "2746. Filter Elements from Array",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/filter-elements-from-array\">2746. Filter Elements from Array</a></h2><h3>Easy</h3><hr><p>Given an integer array <code>arr</code> and a filtering function <code>fn</code>, return a filtered array <code>filteredArr</code>.</p>\n\n<p>The <code>fn</code> function takes one or two arguments:</p>\n\n<ul>\n\t<li><code>arr[i]</code> - number&nbsp;from&nbsp;the <code>arr</code></li>\n\t<li><code>i</code>&nbsp;- index of <code>arr[i]</code></li>\n</ul>\n\n<p><code>filteredArr</code> should only contain the elements from the&nbsp;<code>arr</code> for which the expression <code>fn(arr[i], i)</code> evaluates to a <strong>truthy</strong> value. A&nbsp;<strong>truthy</strong>&nbsp;value is a value where&nbsp;<code>Boolean(value)</code>&nbsp;returns&nbsp;<code>true</code>.</p>\n\n<p>Please solve it without the built-in <code>Array.filter</code> method.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [0,10,20,30], fn = function greaterThan10(n) { return n &gt; 10; }\n<strong>Output:</strong> [20,30]\n<strong>Explanation:</strong>\nconst newArray = filter(arr, fn); // [20, 30]\nThe function filters out values that are not greater than 10</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [1,2,3], fn = function firstIndex(n, i) { return i === 0; }\n<strong>Output:</strong> [1]\n<strong>Explanation:</strong>\nfn can also accept the index of each element\nIn this case, the function removes elements not at index 0\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [-2,-1,0,1,2], fn = function plusOne(n) { return n + 1 }\n<strong>Output:</strong> [-2,0,1,2]\n<strong>Explanation:</strong>\nFalsey values such as 0 should be filtered out\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>0 &lt;= arr.length &lt;= 1000</code></li>\n\t<li><code>-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></code></li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "/**\n * @param {number[]} arr\n * @param {Function} fn\n * @return {number[]}\n */\nvar filter = function(arr, fn) {\n    let result=[];\n    for(let i=0;i<arr.length;i++){\n        if(fn(arr[i],i)){\n        result.push(arr[i]);\n        }\n    }\n    return result;\n};",
+        "filename": "2746-filter-elements-from-array.js"
+      }
+    ]
+  },
+  {
+    "id": "2747-apply-transform-over-each-element-in-array",
+    "title": "2747. Apply Transform Over Each Element in Array",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/apply-transform-over-each-element-in-array\">2747. Apply Transform Over Each Element in Array</a></h2><h3>Easy</h3><hr><p>Given an integer array&nbsp;<code>arr</code>&nbsp;and a mapping function&nbsp;<code>fn</code>, return&nbsp;a new array with a transformation applied to each element.</p>\n\n<p>The returned array should be created such that&nbsp;<code>returnedArray[i] = fn(arr[i], i)</code>.</p>\n\n<p>Please solve it without the built-in <code>Array.map</code> method.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [1,2,3], fn = function plusone(n) { return n + 1; }\n<strong>Output:</strong> [2,3,4]\n<strong>Explanation:</strong>\nconst newArray = map(arr, plusone); // [2,3,4]\nThe function increases each value in the array by one. \n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [1,2,3], fn = function plusI(n, i) { return n + i; }\n<strong>Output:</strong> [1,3,5]\n<strong>Explanation:</strong> The function increases each value by the index it resides in.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [10,20,30], fn = function constant() { return 42; }\n<strong>Output:</strong> [42,42,42]\n<strong>Explanation:</strong> The function always returns 42.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>0 &lt;= arr.length &lt;= 1000</code></li>\n\t<li><code><font face=\"monospace\">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>\n\t<li><code>fn</code> returns an integer.</li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "/**\n * @param {number[]} arr\n * @param {Function} fn\n * @return {number[]}\n */\nvar map = function(arr, fn) {\n    let result=[];\n    for(let i=0;i<arr.length;i++){\n        result.push(fn(arr[i],i))\n    }\n    return result\n};",
+        "filename": "2747-apply-transform-over-each-element-in-array.js"
+      }
+    ]
+  },
+  {
+    "id": "2761-array-reduce-transformation",
+    "title": "2761. Array Reduce Transformation",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/array-reduce-transformation\">2761. Array Reduce Transformation</a></h2><h3>Easy</h3><hr><p>Given an integer array <code>nums</code>, a reducer function <code>fn</code>, and an initial value <code>init</code>, return the final result obtained by executing the <code>fn</code> function on each element of the array, sequentially, passing in the return value from the calculation on the preceding element.</p>\n\n<p>This result is achieved through the following operations: <code>val = fn(init, nums[0]), val = fn(val, nums[1]), val = fn(val, nums[2]), ...</code> until every element in the array has been processed. The ultimate value of <code>val</code> is then returned.</p>\n\n<p>If the length of the array is 0, the function should return <code>init</code>.</p>\n\n<p>Please solve it without using the built-in <code>Array.reduce</code> method.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nnums = [1,2,3,4]\nfn = function sum(accum, curr) { return accum + curr; }\ninit = 0\n<strong>Output:</strong> 10\n<strong>Explanation:</strong>\ninitially, the value is init=0.\n(0) + nums[0] = 1\n(1) + nums[1] = 3\n(3) + nums[2] = 6\n(6) + nums[3] = 10\nThe final answer is 10.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nnums = [1,2,3,4]\nfn = function sum(accum, curr) { return accum + curr * curr; }\ninit = 100\n<strong>Output:</strong> 130\n<strong>Explanation:</strong>\ninitially, the value is init=100.\n(100) + nums[0] * nums[0] = 101\n(101) + nums[1] * nums[1] = 105\n(105) + nums[2] * nums[2] = 114\n(114) + nums[3] * nums[3] = 130\nThe final answer is 130.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nnums = []\nfn = function sum(accum, curr) { return 0; }\ninit = 25\n<strong>Output:</strong> 25\n<strong>Explanation:</strong> For empty arrays, the answer is always init.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>0 &lt;= nums.length &lt;= 1000</code></li>\n\t<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>\n\t<li><code>0 &lt;= init &lt;= 1000</code></li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "/**\n * @param {number[]} nums\n * @param {Function} fn\n * @param {number} init\n * @return {number}\n */\nvar reduce = function(nums, fn, init) {\n    let a=init;\n    for(let i=0;i<nums.length;i++){\n        a=fn(a,nums[i]);\n    }\n    return a;\n};",
+        "filename": "2761-array-reduce-transformation.js"
+      }
+    ]
+  },
+  {
+    "id": "2789-counter-ii",
+    "title": "2789. Counter II",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/counter-ii\">2789. Counter II</a></h2><h3>Easy</h3><hr><p>Write a function&nbsp;<code>createCounter</code>. It should accept an initial integer&nbsp;<code>init</code>. It should return an object with three functions.</p>\n\n<p>The three functions are:</p>\n\n<ul>\n\t<li><code>increment()</code>&nbsp;increases&nbsp;the current value by 1 and then returns it.</li>\n\t<li><code>decrement()</code>&nbsp;reduces the current value by 1 and then returns it.</li>\n\t<li><code>reset()</code>&nbsp;sets the current value to&nbsp;<code>init</code>&nbsp;and then returns it.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> init = 5, calls = [&quot;increment&quot;,&quot;reset&quot;,&quot;decrement&quot;]\n<strong>Output:</strong> [6,5,4]\n<strong>Explanation:</strong>\nconst counter = createCounter(5);\ncounter.increment(); // 6\ncounter.reset(); // 5\ncounter.decrement(); // 4\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> init = 0, calls = [&quot;increment&quot;,&quot;increment&quot;,&quot;decrement&quot;,&quot;reset&quot;,&quot;reset&quot;]\n<strong>Output:</strong> [1,2,1,0,0]\n<strong>Explanation:</strong>\nconst counter = createCounter(0);\ncounter.increment(); // 1\ncounter.increment(); // 2\ncounter.decrement(); // 1\ncounter.reset(); // 0\ncounter.reset(); // 0\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>-1000 &lt;= init &lt;= 1000</code></li>\n\t<li><code>0 &lt;= calls.length &lt;= 1000</code></li>\n\t<li><code>calls[i]</code> is one of &quot;increment&quot;, &quot;decrement&quot; and&nbsp;&quot;reset&quot;</li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "/**\n * @param {integer} init\n * @return { increment: Function, decrement: Function, reset: Function }\n */\nvar createCounter = function(init) {\n    let currentCount = init;\n    return{\n    increment:()=>{\n        return ++currentCount;\n    },\n    reset:()=>{\n        currentCount=init;\n        return currentCount;\n    },\n    decrement:()=>{\n        return --currentCount;\n    }\n    }\n};\n\n/**\n * const counter = createCounter(5)\n * counter.increment(); // 6\n * counter.reset(); // 5\n * counter.decrement(); // 4\n */",
+        "filename": "2789-counter-ii.js"
+      }
+    ]
+  },
+  {
     "id": "2809-create-hello-world-function",
     "title": "2809. Create Hello World Function",
     "difficulty": "Easy",
@@ -91,6 +322,19 @@
     ]
   },
   {
+    "id": "2813-to-be-or-not-to-be",
+    "title": "2813. To Be Or Not To Be",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/to-be-or-not-to-be\">2813. To Be Or Not To Be</a></h2><h3>Easy</h3><hr><p>Write a function&nbsp;<code>expect</code> that helps developers test their code. It should take in any value&nbsp;<code>val</code>&nbsp;and return an object with the following two functions.</p>\n\n<ul>\n\t<li><code>toBe(val)</code>&nbsp;accepts another value and returns&nbsp;<code>true</code>&nbsp;if the two values&nbsp;<code>===</code>&nbsp;each other. If they are not equal, it should throw an error&nbsp;<code>&quot;Not Equal&quot;</code>.</li>\n\t<li><code>notToBe(val)</code>&nbsp;accepts another value and returns&nbsp;<code>true</code>&nbsp;if the two values&nbsp;<code>!==</code>&nbsp;each other. If they are equal, it should throw an error&nbsp;<code>&quot;Equal&quot;</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> func = () =&gt; expect(5).toBe(5)\n<strong>Output:</strong> {&quot;value&quot;: true}\n<strong>Explanation:</strong> 5 === 5 so this expression returns true.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> func = () =&gt; expect(5).toBe(null)\n<strong>Output:</strong> {&quot;error&quot;: &quot;Not Equal&quot;}\n<strong>Explanation:</strong> 5 !== null so this expression throw the error &quot;Not Equal&quot;.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> func = () =&gt; expect(5).notToBe(null)\n<strong>Output:</strong> {&quot;value&quot;: true}\n<strong>Explanation:</strong> 5 !== null so this expression returns true.\n</pre>\n",
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "/**\n * @param {string} val\n * @return {Object}\n */\nvar expect = function(val) {\n    return{\n    toBe: (expectedVal) => {\n            if (val === expectedVal) {\n                return true;\n            } else {\n                throw new Error(\"Not Equal\");\n            }\n        },\n        notToBe: (expectedVal) => {\n            if (val !== expectedVal) {\n                return true;\n            } else {\n                throw new Error(\"Equal\");\n            }\n        }}\n};\n\n/**\n * expect(5).toBe(5); // true\n * expect(5).notToBe(5); // throws \"Equal\"\n */",
+        "filename": "2813-to-be-or-not-to-be.js"
+      }
+    ]
+  },
+  {
     "id": "2820-return-length-of-arguments-passed",
     "title": "2820. Return Length of Arguments Passed",
     "difficulty": "Easy",
@@ -100,6 +344,97 @@
         "language": "javascript",
         "code": "/**\n * @param {...(null|boolean|number|string|Array|Object)} args\n * @return {number}\n */\nvar argumentsLength = function(...args) {\n    return args.length;\n};\n\n/**\n * argumentsLength(1, 2, 3); // 3\n */",
         "filename": "2820-return-length-of-arguments-passed.js"
+      }
+    ]
+  },
+  {
+    "id": "2859-add-two-promises",
+    "title": "2859. Add Two Promises",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/add-two-promises\">2859. Add Two Promises</a></h2><h3>Easy</h3><hr>Given two promises <code>promise1</code> and <code>promise2</code>, return a new promise. <code>promise1</code> and <code>promise2</code>&nbsp;will both resolve with a number. The returned promise should resolve with the sum of the two numbers.\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \npromise1 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(2), 20)), \npromise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(5), 60))\n<strong>Output:</strong> 7\n<strong>Explanation:</strong> The two input promises resolve with the values of 2 and 5 respectively. The returned promise should resolve with a value of 2 + 5 = 7. The time the returned promise resolves is not judged for this problem.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> \npromise1 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(10), 50)), \npromise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))\n<strong>Output:</strong> -2\n<strong>Explanation:</strong> The two input promises resolve with the values of 10 and -12 respectively. The returned promise should resolve with a value of 10 + -12 = -2.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>promise1</code> and <code>promise2</code> are&nbsp;promises that resolve&nbsp;with a number</li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "javascript",
+        "code": "/**\n * @param {Promise} promise1\n * @param {Promise} promise2\n * @return {Promise}\n */\nvar addTwoPromises = async function(promise1, promise2) {\n    const results = await Promise.all([promise1, promise2]);\n    return results[0] + results[1];\n};\n\n/**\n * addTwoPromises(Promise.resolve(2), Promise.resolve(2))\n *   .then(console.log); // 4\n */",
+        "filename": "2859-add-two-promises.js"
+      }
+    ]
+  },
+  {
+    "id": "2903-insert-greatest-common-divisors-in-linked-list",
+    "title": "2903. Insert Greatest Common Divisors in Linked List",
+    "difficulty": "Medium",
+    "description": "<h2><a href=\"https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list\">2903. Insert Greatest Common Divisors in Linked List</a></h2><h3>Medium</h3><hr><p>Given the head of a linked list <code>head</code>, in which each node contains an integer value.</p>\n\n<p>Between every pair of adjacent nodes, insert a new node with a value equal to the <strong>greatest common divisor</strong> of them.</p>\n\n<p>Return <em>the linked list after insertion</em>.</p>\n\n<p>The <strong>greatest common divisor</strong> of two numbers is the largest positive integer that evenly divides both numbers.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2023/07/18/ex1_copy.png\" style=\"width: 641px; height: 181px;\" />\n<pre>\n<strong>Input:</strong> head = [18,6,10,3]\n<strong>Output:</strong> [18,6,6,2,10,1,3]\n<strong>Explanation:</strong> The 1<sup>st</sup> diagram denotes the initial linked list and the 2<sup>nd</sup> diagram denotes the linked list after inserting the new nodes (nodes in blue are the inserted nodes).\n- We insert the greatest common divisor of 18 and 6 = 6 between the 1<sup>st</sup> and the 2<sup>nd</sup> nodes.\n- We insert the greatest common divisor of 6 and 10 = 2 between the 2<sup>nd</sup> and the 3<sup>rd</sup> nodes.\n- We insert the greatest common divisor of 10 and 3 = 1 between the 3<sup>rd</sup> and the 4<sup>th</sup> nodes.\nThere are no more adjacent nodes, so we return the linked list.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2023/07/18/ex2_copy1.png\" style=\"width: 51px; height: 191px;\" />\n<pre>\n<strong>Input:</strong> head = [7]\n<strong>Output:</strong> [7]\n<strong>Explanation:</strong> The 1<sup>st</sup> diagram denotes the initial linked list and the 2<sup>nd</sup> diagram denotes the linked list after inserting the new nodes.\nThere are no pairs of adjacent nodes, so we return the initial linked list.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the list is in the range <code>[1, 5000]</code>.</li>\n\t<li><code>1 &lt;= Node.val &lt;= 1000</code></li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\n\nclass Solution:\n    def _gcd(self, a: int, b: int) -> int:\n        a, b = abs(a), abs(b)\n        while b:\n            a, b = b, a % b\n        return a\n\n    def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        ##empty or single node\n        if not head or not head.next:\n            return head\n        ##other conditions\n        current=head\n        while current and current.next:\n            node1=current\n            node2=current.next\n            gcd=self._gcd(node1.val,node2.val)\n            gcd_Node=ListNode(gcd,next=node2)\n            node1.next=gcd_Node\n            current=node2\n        return head",
+        "filename": "2903-insert-greatest-common-divisors-in-linked-list.py"
+      }
+    ]
+  },
+  {
+    "id": "3064-reshape-data-concatenate",
+    "title": "3064. Reshape Data: Concatenate",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/reshape-data-concatenate\">3064. Reshape Data: Concatenate</a></h2><h3>Easy</h3><hr><pre>\nDataFrame <code>df1</code>\n+-------------+--------+\n| Column Name | Type   |\n+-------------+--------+\n| student_id  | int    |\n| name        | object |\n| age         | int    |\n+-------------+--------+\n\nDataFrame <code>df2</code>\n+-------------+--------+\n| Column Name | Type   |\n+-------------+--------+\n| student_id  | int    |\n| name        | object |\n| age         | int    |\n+-------------+--------+\n\n</pre>\n\n<p>Write a solution to concatenate these two DataFrames <strong>vertically</strong> into one DataFrame.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:\ndf1</strong>\n+------------+---------+-----+\n| student_id | name    | age |\n+------------+---------+-----+\n| 1          | Mason   | 8   |\n| 2          | Ava     | 6   |\n| 3          | Taylor  | 15  |\n| 4          | Georgia | 17  |\n+------------+---------+-----+\n<strong>df2\n</strong>+------------+------+-----+\n| student_id | name | age |\n+------------+------+-----+\n| 5          | Leo  | 7   |\n| 6          | Alex | 7   |\n+------------+------+-----+\n<strong>Output:</strong>\n+------------+---------+-----+\n| student_id | name    | age |\n+------------+---------+-----+\n| 1          | Mason   | 8   |\n| 2          | Ava     | 6   |\n| 3          | Taylor  | 15  |\n| 4          | Georgia | 17  |\n| 5          | Leo     | 7   |\n| 6          | Alex    | 7   |\n+------------+---------+-----+\n<strong>Explanation:\n</strong>The two DataFramess are stacked vertically, and their rows are combined.</pre>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "import pandas as pd\n\ndef concatenateTables(df1: pd.DataFrame, df2: pd.DataFrame) -> pd.DataFrame:\n    return pd.concat([df1, df2], ignore_index=True)",
+        "filename": "3064-reshape-data-concatenate.py"
+      }
+    ]
+  },
+  {
+    "id": "3065-display-the-first-three-rows",
+    "title": "3065. Display the First Three Rows",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/display-the-first-three-rows\">3065. Display the First Three Rows</a></h2><h3>Easy</h3><hr><pre>\nDataFrame: <code>employees</code>\n+-------------+--------+\n| Column Name | Type   |\n+-------------+--------+\n| employee_id | int    |\n| name        | object |\n| department  | object |\n| salary      | int    |\n+-------------+--------+\n</pre>\n\n<p>Write a solution to display the <strong>first <code>3</code> </strong>rows<strong> </strong>of this DataFrame.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:\n</strong>DataFrame employees\n+-------------+-----------+-----------------------+--------+\n| employee_id | name      | department            | salary |\n+-------------+-----------+-----------------------+--------+\n| 3           | Bob       | Operations            | 48675  |\n| 90          | Alice     | Sales                 | 11096  |\n| 9           | Tatiana   | Engineering           | 33805  |\n| 60          | Annabelle | InformationTechnology | 37678  |\n| 49          | Jonathan  | HumanResources        | 23793  |\n| 43          | Khaled    | Administration        | 40454  |\n+-------------+-----------+-----------------------+--------+\n<strong>Output:</strong>\n+-------------+---------+-------------+--------+\n| employee_id | name    | department  | salary |\n+-------------+---------+-------------+--------+\n| 3           | Bob     | Operations  | 48675  |\n| 90          | Alice   | Sales       | 11096  |\n| 9           | Tatiana | Engineering | 33805  |\n+-------------+---------+-------------+--------+\n<strong>Explanation:</strong> \nOnly the first 3 rows are displayed.</pre>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "import pandas as pd\n\ndef selectFirstRows(employees: pd.DataFrame) -> pd.DataFrame:\n    return employees[0:3]",
+        "filename": "3065-display-the-first-three-rows.py"
+      }
+    ]
+  },
+  {
+    "id": "3067-modify-columns",
+    "title": "3067. Modify Columns",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/modify-columns\">3067. Modify Columns</a></h2><h3>Easy</h3><hr><pre>\nDataFrame <code>employees</code>\n+-------------+--------+\n| Column Name | Type   |\n+-------------+--------+\n| name        | object |\n| salary      | int    |\n+-------------+--------+\n</pre>\n\n<p>A company intends to give its employees a pay rise.</p>\n\n<p>Write a solution to <strong>modify</strong> the <code>salary</code> column by multiplying each salary by 2.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:\n</strong>DataFrame employees\n+---------+--------+\n| name    | salary |\n+---------+--------+\n| Jack    | 19666  |\n| Piper   | 74754  |\n| Mia     | 62509  |\n| Ulysses | 54866  |\n+---------+--------+\n<strong>Output:\n</strong>+---------+--------+\n| name    | salary |\n+---------+--------+\n| Jack    | 39332  |\n| Piper   | 149508 |\n| Mia     | 125018 |\n| Ulysses | 109732 |\n+---------+--------+\n<strong>Explanation:\n</strong>Every salary has been doubled.</pre>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "import pandas as pd\n\ndef modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:\n    employees['salary']=employees['salary']*2\n    return employees",
+        "filename": "3067-modify-columns.py"
+      }
+    ]
+  },
+  {
+    "id": "3194-find-words-containing-character",
+    "title": "3194. Find Words Containing Character",
+    "difficulty": "Easy",
+    "description": "<h2><a href=\"https://leetcode.com/problems/find-words-containing-character\">3194. Find Words Containing Character</a></h2><h3>Easy</h3><hr><p>You are given a <strong>0-indexed</strong> array of strings <code>words</code> and a character <code>x</code>.</p>\n\n<p>Return <em>an <strong>array of indices</strong> representing the words that contain the character </em><code>x</code>.</p>\n\n<p><strong>Note</strong> that the returned array may be in <strong>any</strong> order.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> words = [&quot;leet&quot;,&quot;code&quot;], x = &quot;e&quot;\n<strong>Output:</strong> [0,1]\n<strong>Explanation:</strong> &quot;e&quot; occurs in both words: &quot;l<strong><u>ee</u></strong>t&quot;, and &quot;cod<u><strong>e</strong></u>&quot;. Hence, we return indices 0 and 1.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> words = [&quot;abc&quot;,&quot;bcd&quot;,&quot;aaaa&quot;,&quot;cbc&quot;], x = &quot;a&quot;\n<strong>Output:</strong> [0,2]\n<strong>Explanation:</strong> &quot;a&quot; occurs in &quot;<strong><u>a</u></strong>bc&quot;, and &quot;<u><strong>aaaa</strong></u>&quot;. Hence, we return indices 0 and 2.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> words = [&quot;abc&quot;,&quot;bcd&quot;,&quot;aaaa&quot;,&quot;cbc&quot;], x = &quot;z&quot;\n<strong>Output:</strong> []\n<strong>Explanation:</strong> &quot;z&quot; does not occur in any of the words. Hence, we return an empty array.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= words.length &lt;= 50</code></li>\n\t<li><code>1 &lt;= words[i].length &lt;= 50</code></li>\n\t<li><code>x</code> is a lowercase English letter.</li>\n\t<li><code>words[i]</code> consists only of lowercase English letters.</li>\n</ul>\n",
+    "solutions": [
+      {
+        "language": "python",
+        "code": "class Solution:\n    def findWordsContaining(self, words: List[str], x: str) -> List[int]:\n        ans=[]\n        for i in range(len(words)):\n            if x in words[i]:\n                ans.append(i)\n        return ans",
+        "filename": "3194-find-words-containing-character.py"
+      }
+    ]
+  },
+  {
+    "id": "3792-find-invalid-ip-addresses",
+    "title": "3792. Find Invalid IP Addresses",
+    "difficulty": "Hard",
+    "description": "<h2><a href=\"https://leetcode.com/problems/find-invalid-ip-addresses\">3792. Find Invalid IP Addresses</a></h2><h3>Hard</h3><hr><p>Table: <code> logs</code></p>\n\n<pre>\n+-------------+---------+\n| Column Name | Type    |\n+-------------+---------+\n| log_id      | int     |\n| ip          | varchar |\n| status_code | int     |\n+-------------+---------+\nlog_id is the unique key for this table.\nEach row contains server access log information including IP address and HTTP status code.\n</pre>\n\n<p>Write a solution to find <strong>invalid IP addresses</strong>. An IPv4 address is invalid if it meets any of these conditions:</p>\n\n<ul>\n\t<li>Contains numbers <strong>greater than</strong> <code>255</code> in any octet</li>\n\t<li>Has <strong>leading zeros</strong> in any octet (like <code>01.02.03.04</code>)</li>\n\t<li>Has <strong>less or more</strong> than <code>4</code> octets</li>\n</ul>\n\n<p>Return <em>the result table </em><em>ordered by</em> <code>invalid_count</code>,&nbsp;<code>ip</code>&nbsp;<em>in <strong>descending</strong> order respectively</em>.&nbsp;</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong></p>\n\n<p>logs table:</p>\n\n<pre class=\"example-io\">\n+--------+---------------+-------------+\n| log_id | ip            | status_code | \n+--------+---------------+-------------+\n| 1      | 192.168.1.1   | 200         | \n| 2      | 256.1.2.3     | 404         | \n| 3      | 192.168.001.1 | 200         | \n| 4      | 192.168.1.1   | 200         | \n| 5      | 192.168.1     | 500         | \n| 6      | 256.1.2.3     | 404         | \n| 7      | 192.168.001.1 | 200         | \n+--------+---------------+-------------+\n</pre>\n\n<p><strong>Output:</strong></p>\n\n<pre class=\"example-io\">\n+---------------+--------------+\n| ip            | invalid_count|\n+---------------+--------------+\n| 256.1.2.3     | 2            |\n| 192.168.001.1 | 2            |\n| 192.168.1     | 1            |\n+---------------+--------------+\n</pre>\n\n<p><strong>Explanation:</strong></p>\n\n<ul>\n\t<li>256.1.2.3&nbsp;is invalid because 256 &gt; 255</li>\n\t<li>192.168.001.1&nbsp;is invalid because of leading zeros</li>\n\t<li>192.168.1&nbsp;is invalid because it has only 3 octets</li>\n</ul>\n\n<p>The output table is ordered by invalid_count, ip in descending order respectively.</p>\n</div>\n",
+    "solutions": [
+      {
+        "language": "sql",
+        "code": "# Write your MySQL query statement below\nSELECT\n    ip,\n    COUNT(ip) AS invalid_count\nFROM Logs\nWHERE ip NOT REGEXP '^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\\\\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$'\nGROUP BY ip\nORDER BY invalid_count DESC, ip DESC;",
+        "filename": "3792-find-invalid-ip-addresses.sql"
       }
     ]
   }
