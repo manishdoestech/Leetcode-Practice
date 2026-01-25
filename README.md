@@ -12,6 +12,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0088-merge-sorted-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0088-merge-sorted-array) |
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
 | [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
+| [1929-concatenation-of-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/1929-concatenation-of-array) |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 | [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
@@ -62,6 +63,7 @@ A collection of LeetCode questions to ace the coding interview!
 ## Simulation
 |  |
 | ------- |
+| [1929-concatenation-of-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/1929-concatenation-of-array) |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 ## Database
