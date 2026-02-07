@@ -17,6 +17,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [1929-concatenation-of-array](https://github.com/manishdoestech/Leetcode-Practice/tree/master/1929-concatenation-of-array) |
 | [2048-build-array-from-permutation](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2048-build-array-from-permutation) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
+| [3190-find-minimum-operations-to-make-all-elements-divisible-by-three](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3190-find-minimum-operations-to-make-all-elements-divisible-by-three) |
 | [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
 | [3512-minimum-operations-to-make-array-sum-divisible-by-k](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3512-minimum-operations-to-make-array-sum-divisible-by-k) |
 ## Hash Table
@@ -60,6 +61,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0007-reverse-integer](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0007-reverse-integer) |
 | [0009-palindrome-number](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0009-palindrome-number) |
 | [2903-insert-greatest-common-divisors-in-linked-list](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2903-insert-greatest-common-divisors-in-linked-list) |
+| [3190-find-minimum-operations-to-make-all-elements-divisible-by-three](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3190-find-minimum-operations-to-make-all-elements-divisible-by-three) |
 | [3512-minimum-operations-to-make-array-sum-divisible-by-k](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3512-minimum-operations-to-make-array-sum-divisible-by-k) |
 ## Linked List
 |  |
