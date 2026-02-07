@@ -27,6 +27,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0217-contains-duplicate](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0347-top-k-frequent-elements) |
+| [3760-maximum-substrings-with-distinct-start](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3760-maximum-substrings-with-distinct-start) |
 ## Two Pointers
 |  |
 | ------- |
@@ -52,6 +53,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0520-detect-capital](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0520-detect-capital) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 | [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
+| [3760-maximum-substrings-with-distinct-start](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3760-maximum-substrings-with-distinct-start) |
 ## Math
 |  |
 | ------- |
