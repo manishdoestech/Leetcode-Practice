@@ -5,7 +5,7 @@ class Solution {
             countMap.put(num, countMap.getOrDefault(num, 0) + 1);
         }
         List<Integer> list = new ArrayList<>(countMap.keySet());
-        Collections.sort(list, (a, b) -> countMap.get(b) - countMap.get(a));
+        list.sort(Comparator.comparing(countMap::get).reversed());
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
             result[i] = list.get(i);
