@@ -57,6 +57,7 @@ A collection of LeetCode questions to ace the coding interview!
 | [0242-valid-anagram](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0242-valid-anagram) |
 | [0482-license-key-formatting](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0482-license-key-formatting) |
 | [0520-detect-capital](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0520-detect-capital) |
+| [1689-partitioning-into-minimum-number-of-deci-binary-numbers](https://github.com/manishdoestech/Leetcode-Practice/tree/master/1689-partitioning-into-minimum-number-of-deci-binary-numbers) |
 | [2137-final-value-of-variable-after-performing-operations](https://github.com/manishdoestech/Leetcode-Practice/tree/master/2137-final-value-of-variable-after-performing-operations) |
 | [3194-find-words-containing-character](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3194-find-words-containing-character) |
 | [3760-maximum-substrings-with-distinct-start](https://github.com/manishdoestech/Leetcode-Practice/tree/master/3760-maximum-substrings-with-distinct-start) |
@@ -120,4 +121,5 @@ A collection of LeetCode questions to ace the coding interview!
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/manishdoestech/Leetcode-Practice/tree/master/0011-container-with-most-water) |
+| [1689-partitioning-into-minimum-number-of-deci-binary-numbers](https://github.com/manishdoestech/Leetcode-Practice/tree/master/1689-partitioning-into-minimum-number-of-deci-binary-numbers) |
 <!---LeetCode Topics End-->
